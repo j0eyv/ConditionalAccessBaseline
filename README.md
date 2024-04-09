@@ -4,7 +4,9 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 
 ## Resources
 ➡ Microsoft Learn: https://learn.microsoft.com/en-us/azure/architecture/guide/security/conditional-access-framework
+
 ➡ Framework documentation by Claus Jespersen: https://github.com/microsoft/ConditionalAccessforZeroTrustResources/blob/main/ConditionalAccessGovernanceAndPrinciplesforZeroTrust%20October%202023.pdf
+
 ➡ Framework resources: https://github.com/microsoft/ConditionalAccessforZeroTrustResources
 
 
