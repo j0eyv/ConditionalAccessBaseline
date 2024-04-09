@@ -1,3 +1,13 @@
+# Conditional Access Baseline
+
+This conditional access baseline is based on the Microsoft Conditional Access Baseline by Claus Jespersen. This one is slightly minimized and less dificult to understand but still protects almost everything you could wish for. Use this baseline to start off with and expend where needed.
+
+## Resources
+➡ Microsoft Learn: https://learn.microsoft.com/en-us/azure/architecture/guide/security/conditional-access-framework
+➡ Framework documentation by Claus Jespersen: https://github.com/microsoft/ConditionalAccessforZeroTrustResources/blob/main/ConditionalAccessGovernanceAndPrinciplesforZeroTrust%20October%202023.pdf
+➡ Framework resources: https://github.com/microsoft/ConditionalAccessforZeroTrustResources
+
+
 ## Table of Contents
 - [Conditional access](#section-1)
   - [Conditional access policies](#section-2)
