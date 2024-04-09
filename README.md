@@ -1,48 +1,27 @@
 ## Table of Contents
 - [Conditional access](#section-1)
-
   - [Conditional access policies](#section-2)
-
     - [CA000-Global-IdentityProtection-AnyApp-AnyPlatform-MFA](#section-3)
-
     - [CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryWhitelist](#section-4)
-
     - [CA002-Global-IdentityProtection-AnyApp-AnyPlatform-Block-LegacyAuthentication](#section-5)
-
     - [CA003-Global-BaseProtection-RegisterOrJoin-AnyPlatform-MFA](#section-6)
-
     - [CA004-Global-IdentityProtection-AnyApp-AnyPlatform-AuthenticationFlows](#section-7)
-
     - [CA005-Global-DataProtection-Office365-AnyPlatform-Unmanaged-AppEnforcedRestrictions-BlockDownload](#section-8)
-
     - [CA100-Admins-IdentityProtection-AdminPortals-AnyPlatform-MFA](#section-9)
-
     - [CA101-Admins-IdentityProtection-AnyApp-AnyPlatform-MFA](#section-10)
-
     - [CA102-Admins-IdentityProtection-AllApps-AnyPlatform-SigninFrequency](#section-11)
-
     - [CA200-Internals-IdentityProtection-AnyApp-AnyPlatform-MFA](#section-12)
-
     - [CA201-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRisk](#section-13)
-
     - [CA202-Internals-IdentityProtection-AllApps-WindowsMacOS-SigninFrequency-UnmanagedDevices](#section-14)
-
     - [CA203-Internals-AppProtection-MicrosoftIntuneEnrollment-AnyPlatform-MFA](#section-15)
-
     - [CA204-Internals-AttackSurfaceReduction-AllApps-AnyPlatform-BlockUnknownPlatforms](#section-16)
-
     - [CA205-Internals-IdentityProtection-AllApps-AnyPlatform-CombinedRegistration](#section-17)
-
     - [CA206-Internals-BaseProtection-AnyApp-Windows-CompliantorAADHJ](#section-18)
-
     - [CA400-GuestUsers-IdentityProtection-AnyApp-AnyPlatform-MFA](#section-19)
-
     - [CA401-GuestUsers-AttackSurfaceReduction-AllApps-AnyPlatform-BlockNonGuestAppAccess](#section-20)
-
     - [CA402-GuestUsers-IdentityProtection-AllApps-AnyPlatform-SigninFrequency](#section-21)
 
   - [Named Locations](#section-22)
-
     - [ALLOWED COUNTRIES](#section-23)
 
 
