@@ -39,6 +39,8 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
     - [CA402-GuestUsers-IdentityProtection-AllApps-AnyPlatform-SigninFrequency](#ca402-guestusers-identityprotection-allapps-anyplatform-signinfrequency)
   - [Named locations](#named-locations)
   - [Importing the baseline](#importing-the-baseline)
+    - [Setup IntuneManagement](#setup-intunemanagement)
+    - [Import the configuration](#import-the-configuration)
 
 
 ## Resources
@@ -101,13 +103,19 @@ This policy requires MFA for all cloud apps, from every platform. It captures al
 
 This policy blocks all countries, to all cloud apps, from every platform except for the countries configured in the named location **ALLOWED COUNTRIES**. This named location is excluded in this policy.
 
+> [!IMPORTANT]
+> Modify the named location with your approved countries. By default only Belgium, Luxembourgh and Netherlands are allowed to have access from.
+
 ### CA002-Global-IdentityProtection-AnyApp-AnyPlatform-Block-LegacyAuthentication
 
 This policy blocks legacy authentication for all users, to all cloud apps, from any platform.
 
 ### CA003-Global-BaseProtection-RegisterOrJoin-AnyPlatform-MFA
 
-This policy requires MFA for all users, to register or join a device to your tenant/environment. Make sure to disable *Require Multifactor Authentication to register or join devices with Microsoft Entra*. This can be found under https://portal.azure.com -> Entra ID -> Devices -> Device settings.
+This policy requires MFA for all users, to register or join a device to your tenant/environment.
+
+> [!TIP]
+> Make sure to disable *Require Multifactor Authentication to register or join devices with Microsoft Entra*. This can be found under https://portal.azure.com -> Entra ID -> Devices -> Device settings.
 
 ![Image1](Images\image1.png)
 
@@ -171,23 +179,106 @@ This policy blocks unknown/unsupported device platforms for internals.
 
 ### CA205-Internals-IdentityProtection-AllApps-AnyPlatform-CombinedRegistration
 
-This policy requires secrity information registration for internals only from a managed or compliant device.
+This policy requires security information registration for internals only from a managed or compliant device.
 
 > [!IMPORTANT]
 > Verify the included group(s) and/or add your custom groups which have all internals in it.
 
 ### CA206-Internals-BaseProtection-AnyApp-Windows-CompliantorAADHJ
 
+This policy requires internals to make use of a Windows device that is compliant or AADHJ (Azure AD Hybrid Joined / Entra ID Hybrid Joined) while accessing any cloud app.
+
 > [!IMPORTANT]
 > Verify the included group(s) and/or add your custom groups which have all internals in it.
 
 ### CA400-GuestUsers-IdentityProtection-AnyApp-AnyPlatform-MFA
+
+This policy requires guest to use MFA, from any platform when accessing any cloud app.
+
 ### CA401-GuestUsers-AttackSurfaceReduction-AllApps-AnyPlatform-BlockNonGuestAppAccess
+
+This policy blocks access for guests to all cloud apps (except for those excluded), from any device
+
+> [!IMPORTANT]
+> Make sure to exclude additional cloud apps if any guest needs access to these apps.
+
 ### CA402-GuestUsers-IdentityProtection-AllApps-AnyPlatform-SigninFrequency
+
+This policy sets a Sign-in frequency to a maximum of 12 hours for guests, to all cloud apps, using any device.
 
 
 ## Named locations
 
+| Name | Location type | Assigned to policy |
+| -------- | -------- | -------- |
+| ALLOWED COUNTRIES | Countries (IP) | CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryWhitelist |
 
 
 ## Importing the baseline
+
+These PowerShell scripts are using Microsoft Authentication Library (MSAL), Microsoft Graph APIs and Azure Management APIs to manage objects in Intune and Azure. The scripts has a simple WPF UI and it supports operations like Export, Import, Copy, Download, Compare etc.
+
+This makes it easy to backup or clone a complete Intune environment. The scripts can export and import objects including assignments and support import/export between tenants. The scripts will create a migration table during export and use that for importing assignments in other environments. It will create missing groups in the target environment during import. Group information like name, description and type will be imported based on the exported group e.g. dynamic groups are supported. There will be one json file for each group in the export folder.
+
+The script also support dependencies e.g. an App Protection is depending on an App, Policy Sets are depending on Compliance Policies, objects has Scope Tags etc. Dependency support requires exported json files and that the dependency objects are imported in the environment. The script uses the exported json files to get the Id and name's of the exported object and uses that information and updates Id's before import an object from a json file. The Bulk Import form shows the import order of the objects. The objects with the lowest order number will be imported first.
+
+![IntuneManagement1](./images/IntuneManagement1.png)
+
+> [!TIP]
+> The following tool is used: https://github.com/Micke-K/IntuneManagement. Always download the lastest version before importing or exporting data.
+
+### Setup IntuneManagement
+
+Start by downloading the files in GitHub. Extract the Github repo somewhere on your device. Remember the path where the tool is stored. For example: *C:\Intune\IntuneManagement*.
+
+![IntuneManagement2](./images/IntuneManagement2.png)
+
+Unblock all .cmd/.ps1/.psd files with the following PowerShell command.
+
+```
+Get-ChildItem -Path "C:\Intune\IntuneManagement\" -File -Recurse | Unblock-File
+```
+
+Start the IntuneManagementTool
+```
+cd C:\Intune\IntuneManagement\
+.\Start-IntuneManagement.ps1
+```
+
+Start by authenticating to your tenant with the profile icon in the top right.
+
+![IntuneManagement3](./images/IntuneManagement3.png)
+
+In the modern authentication window that pops up, sign in with an account that has appropriate permissions, if unsure use Global Administrator. After sign-in you will be prompted to accept permissions for Microsoft Intune PowerShell, DO NOT tick the box to consent on behalf of your organization.
+
+![IntuneManagement4](./images/IntuneManagement4.png)
+
+It's likely the first time you do this you'll still see you don't have access to the settings, you'll know this as the menu on the left-hand side will have all text in red, like so.
+
+![IntuneManagement5](./images/IntuneManagement5.png)
+
+From here, select the profile icon in the top right corner and then Request Consent again.
+
+![IntuneManagement6](./images/IntuneManagement6.png)
+
+Go ahead and accept the popup again, this should clear all the red text on the left hand-side.
+
+![IntuneManagement7](./images/IntuneManagement7.png)
+
+Now we are ready to rock 'n' roll and we can start importing, exporting, or comparing tenant configurations.
+
+### Import the configuration
+
+1: Click on **Bulk** -> **Import**
+
+![IntuneManagement8](./images/IntuneManagement8.png)
+
+2: Select the folder where you stored the Modern Workplace Blueprint.
+
+3: Decide if you want to import all the assignments or assign all policies yourself.
+
+4: Set "Conditional Access State" to **Off** or **Report-only**. Don't forget to enable these later! This should be done after MFA is setup for an Global Admin account and (if required) a Break the Glass account is created.
+
+5: Click **Import**
+
+![IntuneManagement9](./images/IntuneManagement9.png)
