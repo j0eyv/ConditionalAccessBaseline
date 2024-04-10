@@ -225,7 +225,7 @@ This makes it easy to backup or clone a complete Intune environment. The scripts
 
 The script also support dependencies e.g. an App Protection is depending on an App, Policy Sets are depending on Compliance Policies, objects has Scope Tags etc. Dependency support requires exported json files and that the dependency objects are imported in the environment. The script uses the exported json files to get the Id and name's of the exported object and uses that information and updates Id's before import an object from a json file. The Bulk Import form shows the import order of the objects. The objects with the lowest order number will be imported first.
 
-![IntuneManagement1](./images/IntuneManagement1.png)
+![IntuneManagement1](Images\IntuneManagement1.png)
 
 > [!TIP]
 > The following tool is used: https://github.com/Micke-K/IntuneManagement. Always download the lastest version before importing or exporting data.
@@ -234,7 +234,7 @@ The script also support dependencies e.g. an App Protection is depending on an A
 
 Start by downloading the files in GitHub. Extract the Github repo somewhere on your device. For example: *C:\Intune\IntuneManagement*.
 
-![IntuneManagement2](./images/IntuneManagement2.png)
+![IntuneManagement2](Images\IntuneManagement2.png)
 
 Unblock all .cmd/.ps1/.psd files with the following PowerShell command.
 
@@ -250,23 +250,23 @@ cd C:\Intune\IntuneManagement\
 
 Start by authenticating to your tenant with the profile icon in the top right.
 
-![IntuneManagement3](./images/IntuneManagement3.png)
+![IntuneManagement3](Images\IntuneManagement3.png)
 
 In the modern authentication window that pops up, sign in with an account that has appropriate permissions, if unsure use Global Administrator. After sign-in you will be prompted to accept permissions for Microsoft Intune PowerShell, **DO NOT** tick the box to consent on behalf of your organisation.
 
-![IntuneManagement4](./images/IntuneManagement4.png)
+![IntuneManagement4](Images\IntuneManagement4.png)
 
 It's likely the first time you do this you'll still see you don't have access to the settings, you'll know this as the menu on the left-hand side will have all text in red, like so.
 
-![IntuneManagement5](./images/IntuneManagement5.png)
+![IntuneManagement5](Images\IntuneManagement5.png)
 
 From here, select the profile icon in the top right corner and then Request Consent again.
 
-![IntuneManagement6](./images/IntuneManagement6.png)
+![IntuneManagement6](Images\IntuneManagement6.png)
 
 Go ahead and accept the popup again, this should clear all the red text on the left hand-side. **DO NOT** tick the box to consent on behalf of your organisation.
 
-![IntuneManagement7](./images/IntuneManagement7.png)
+![IntuneManagement7](Images\IntuneManagement7.png)
 
 Now we can start importing, exporting, or comparing tenant configurations. 
 
@@ -274,7 +274,7 @@ Now we can start importing, exporting, or comparing tenant configurations.
 
 1: Click on **Bulk** -> **Import**
 
-![IntuneManagement8](./images/IntuneManagement8.png)
+![IntuneManagement8](Images\IntuneManagement8.png)
 
 2: Select the folder where you stored the conditional access policies.
 
@@ -284,11 +284,11 @@ Now we can start importing, exporting, or comparing tenant configurations.
 
 5: Click **Import**
 
-![IntuneManagement9](./images/IntuneManagement9.png)
+![IntuneManagement9](Images\IntuneManagement9.png)
 
 Once the importing is complete, all policies will be available for you to modify and/or enable them.
 
 > [!CAUTION]
 > Be careful activating the policies! Make sure you have decent exclusions and/or a break the glass account in place. Enable the policies one by one or start with report-only.
 
-![CA Policies](./images/image2.png)
+![CA Policies](Images\image2.png)
