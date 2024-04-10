@@ -12,51 +12,11 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 
 
 ## Table of Contents
-- [Conditional access](#section-1)
-
-  - [Conditional access policies](#section-2)
-
-    - [CA000-Global-IdentityProtection-AnyApp-AnyPlatform-MFA](#section-3)
-
-    - [CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryWhitelist](#section-4)
-
-    - [CA002-Global-IdentityProtection-AnyApp-AnyPlatform-Block-LegacyAuthentication](#section-5)
-
-    - [CA003-Global-BaseProtection-RegisterOrJoin-AnyPlatform-MFA](#section-6)
-
-    - [CA004-Global-IdentityProtection-AnyApp-AnyPlatform-AuthenticationFlows](#section-7)
-
-    - [CA005-Global-DataProtection-Office365-AnyPlatform-Unmanaged-AppEnforcedRestrictions-BlockDownload](#section-8)
-
-    - [CA100-Admins-IdentityProtection-AdminPortals-AnyPlatform-MFA](#section-9)
-
-    - [CA101-Admins-IdentityProtection-AnyApp-AnyPlatform-MFA](#section-10)
-
-    - [CA102-Admins-IdentityProtection-AllApps-AnyPlatform-SigninFrequency](#section-11)
-
-    - [CA200-Internals-IdentityProtection-AnyApp-AnyPlatform-MFA](#section-12)
-
-    - [CA201-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRisk](#section-13)
-
-    - [CA202-Internals-IdentityProtection-AllApps-WindowsMacOS-SigninFrequency-UnmanagedDevices](#section-14)
-
-    - [CA203-Internals-AppProtection-MicrosoftIntuneEnrollment-AnyPlatform-MFA](#section-15)
-
-    - [CA204-Internals-AttackSurfaceReduction-AllApps-AnyPlatform-BlockUnknownPlatforms](#section-16)
-
-    - [CA205-Internals-IdentityProtection-AllApps-AnyPlatform-CombinedRegistration](#section-17)
-
-    - [CA206-Internals-BaseProtection-AnyApp-Windows-CompliantorAADHJ](#section-18)
-
-    - [CA400-GuestUsers-IdentityProtection-AnyApp-AnyPlatform-MFA](#section-19)
-
-    - [CA401-GuestUsers-AttackSurfaceReduction-AllApps-AnyPlatform-BlockNonGuestAppAccess](#section-20)
-
-    - [CA402-GuestUsers-IdentityProtection-AllApps-AnyPlatform-SigninFrequency](#section-21)
-
-  - [Named Locations](#section-22)
-
-    - [ALLOWED COUNTRIES](#section-23)
+- [Conditional Access Baseline](#conditional-access-baseline)
+  - [Resources](#resources)
+  - [Table of Contents](#table-of-contents)
+          - [Table 3. Basics - CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryWhitelist](#table-3-basics---ca001-global-attacksurfacereduction-anyapp-anyplatform-block-countrywhitelist)
+          - [Table 14. Settings - CA100-Admins-IdentityProtection-AdminPortals-AnyPlatform-MFA](#table-14-settings---ca100-admins-identityprotection-adminportals-anyplatform-mfa)
 
 
 <h1 id="section-1">Conditional access</h1>
@@ -92,9 +52,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 <td class='property-column2'>Wednesday, 27 March 2024 14:41:39</td>
 </tr>
 </table>
-
-###### Table 1. Basics - CA000-Global-IdentityProtection-AnyApp-AnyPlatform-MFA
-
 
 <table class='table-settings'>
 <tr class='table-header1'>
@@ -148,8 +105,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 <td class='property-column2'>Require one of the selected controls</td>
 </tr>
 </table>
-
-###### Table 2. Settings - CA000-Global-IdentityProtection-AnyApp-AnyPlatform-MFA
 
 
 <h3 id="section-4">CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryWhitelist</h3>
@@ -242,9 +197,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 </tr>
 </table>
 
-###### Table 4. Settings - CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryWhitelist
-
-
 <h3 id="section-5">CA002-Global-IdentityProtection-AnyApp-AnyPlatform-Block-LegacyAuthentication</h3>
 
 <table class='table-settings'>
@@ -276,9 +228,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 <td class='property-column2'>Tuesday, 2 January 2024 10:38:10</td>
 </tr>
 </table>
-
-###### Table 5. Basics - CA002-Global-IdentityProtection-AnyApp-AnyPlatform-Block-LegacyAuthentication
-
 
 <table class='table-settings'>
 <tr class='table-header1'>
@@ -331,8 +280,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 </tr>
 </table>
 
-###### Table 6. Settings - CA002-Global-IdentityProtection-AnyApp-AnyPlatform-Block-LegacyAuthentication
-
 
 <h3 id="section-6">CA003-Global-BaseProtection-RegisterOrJoin-AnyPlatform-MFA</h3>
 
@@ -361,8 +308,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 <td class='property-column2'>Wednesday, 3 January 2024 07:52:15</td>
 </tr>
 </table>
-
-###### Table 7. Basics - CA003-Global-BaseProtection-RegisterOrJoin-AnyPlatform-MFA
 
 
 <table class='table-settings'>
@@ -414,8 +359,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 </tr>
 </table>
 
-###### Table 8. Settings - CA003-Global-BaseProtection-RegisterOrJoin-AnyPlatform-MFA
-
 
 <h3 id="section-7">CA004-Global-IdentityProtection-AnyApp-AnyPlatform-AuthenticationFlows</h3>
 
@@ -448,8 +391,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 <td class='property-column2'>Monday, 8 April 2024 12:38:51</td>
 </tr>
 </table>
-
-###### Table 9. Basics - CA004-Global-IdentityProtection-AnyApp-AnyPlatform-AuthenticationFlows
 
 
 <table class='table-settings'>
@@ -493,8 +434,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 </tr>
 </table>
 
-###### Table 10. Settings - CA004-Global-IdentityProtection-AnyApp-AnyPlatform-AuthenticationFlows
-
 
 <h3 id="section-8">CA005-Global-DataProtection-Office365-AnyPlatform-Unmanaged-AppEnforcedRestrictions-BlockDownload</h3>
 
@@ -527,8 +466,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 <td class='property-column2'>Monday, 8 April 2024 12:38:39</td>
 </tr>
 </table>
-
-###### Table 11. Basics - CA005-Global-DataProtection-Office365-AnyPlatform-Unmanaged-AppEnforcedRestrictions-BlockDownload
 
 
 <table class='table-settings'>
@@ -600,8 +537,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 </tr>
 </table>
 
-###### Table 12. Settings - CA005-Global-DataProtection-Office365-AnyPlatform-Unmanaged-AppEnforcedRestrictions-BlockDownload
-
 
 <h3 id="section-9">CA100-Admins-IdentityProtection-AdminPortals-AnyPlatform-MFA</h3>
 
@@ -634,8 +569,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 <td class='property-column2'>Wednesday, 3 January 2024 09:43:35</td>
 </tr>
 </table>
-
-###### Table 13. Basics - CA100-Admins-IdentityProtection-AdminPortals-AnyPlatform-MFA
 
 
 <table class='table-settings'>
@@ -726,8 +659,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 </tr>
 </table>
 
-###### Table 15. Basics - CA101-Admins-IdentityProtection-AnyApp-AnyPlatform-MFA
-
 
 <table class='table-settings'>
 <tr class='table-header1'>
@@ -799,8 +730,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 </tr>
 </table>
 
-###### Table 16. Settings - CA101-Admins-IdentityProtection-AnyApp-AnyPlatform-MFA
-
 
 <h3 id="section-11">CA102-Admins-IdentityProtection-AllApps-AnyPlatform-SigninFrequency</h3>
 
@@ -833,8 +762,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 <td class='property-column2'>Tuesday, 2 January 2024 10:38:23</td>
 </tr>
 </table>
-
-###### Table 17. Basics - CA102-Admins-IdentityProtection-AllApps-AnyPlatform-SigninFrequency
 
 
 <table class='table-settings'>
@@ -893,7 +820,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 </tr>
 </table>
 
-###### Table 18. Settings - CA102-Admins-IdentityProtection-AllApps-AnyPlatform-SigninFrequency
 
 
 <h3 id="section-12">CA200-Internals-IdentityProtection-AnyApp-AnyPlatform-MFA</h3>
@@ -928,7 +854,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 </tr>
 </table>
 
-###### Table 19. Basics - CA200-Internals-IdentityProtection-AnyApp-AnyPlatform-MFA
 
 
 <table class='table-settings'>
@@ -1001,8 +926,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 </tr>
 </table>
 
-###### Table 20. Settings - CA200-Internals-IdentityProtection-AnyApp-AnyPlatform-MFA
-
 
 <h3 id="section-13">CA201-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRisk</h3>
 
@@ -1035,8 +958,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 <td class='property-column2'>Wednesday, 24 January 2024 08:53:55</td>
 </tr>
 </table>
-
-###### Table 21. Basics - CA201-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRisk
 
 
 <table class='table-settings'>
@@ -1101,8 +1022,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 </tr>
 </table>
 
-###### Table 22. Settings - CA201-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRisk
-
 
 <h3 id="section-14">CA202-Internals-IdentityProtection-AllApps-WindowsMacOS-SigninFrequency-UnmanagedDevices</h3>
 
@@ -1135,8 +1054,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 <td class='property-column2'>Wednesday, 3 January 2024 09:54:21</td>
 </tr>
 </table>
-
-###### Table 23. Basics - CA202-Internals-IdentityProtection-AllApps-WindowsMacOS-SigninFrequency-UnmanagedDevices
 
 
 <table class='table-settings'>
@@ -1212,8 +1129,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 </tr>
 </table>
 
-###### Table 24. Settings - CA202-Internals-IdentityProtection-AllApps-WindowsMacOS-SigninFrequency-UnmanagedDevices
-
 
 <h3 id="section-15">CA203-Internals-AppProtection-MicrosoftIntuneEnrollment-AnyPlatform-MFA</h3>
 
@@ -1246,8 +1161,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 <td class='property-column2'>Tuesday, 2 January 2024 10:39:07</td>
 </tr>
 </table>
-
-###### Table 25. Basics - CA203-Internals-AppProtection-MicrosoftIntuneEnrollment-AnyPlatform-MFA
 
 
 <table class='table-settings'>
@@ -1310,8 +1223,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 </tr>
 </table>
 
-###### Table 26. Settings - CA203-Internals-AppProtection-MicrosoftIntuneEnrollment-AnyPlatform-MFA
-
 
 <h3 id="section-16">CA204-Internals-AttackSurfaceReduction-AllApps-AnyPlatform-BlockUnknownPlatforms</h3>
 
@@ -1344,8 +1255,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 <td class='property-column2'>Tuesday, 2 January 2024 10:39:24</td>
 </tr>
 </table>
-
-###### Table 27. Basics - CA204-Internals-AttackSurfaceReduction-AllApps-AnyPlatform-BlockUnknownPlatforms
 
 
 <table class='table-settings'>
@@ -1407,7 +1316,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 </tr>
 </table>
 
-###### Table 28. Settings - CA204-Internals-AttackSurfaceReduction-AllApps-AnyPlatform-BlockUnknownPlatforms
 
 
 <h3 id="section-17">CA205-Internals-IdentityProtection-AllApps-AnyPlatform-CombinedRegistration</h3>
@@ -1437,9 +1345,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 <td class='property-column2'>Wednesday, 3 January 2024 08:08:24</td>
 </tr>
 </table>
-
-###### Table 29. Basics - CA205-Internals-IdentityProtection-AllApps-AnyPlatform-CombinedRegistration
-
 
 <table class='table-settings'>
 <tr class='table-header1'>
@@ -1498,9 +1403,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 </tr>
 </table>
 
-###### Table 30. Settings - CA205-Internals-IdentityProtection-AllApps-AnyPlatform-CombinedRegistration
-
-
 <h3 id="section-18">CA206-Internals-BaseProtection-AnyApp-Windows-CompliantorAADHJ</h3>
 
 <table class='table-settings'>
@@ -1532,8 +1434,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 <td class='property-column2'>Wednesday, 3 January 2024 09:52:28</td>
 </tr>
 </table>
-
-###### Table 31. Basics - CA206-Internals-BaseProtection-AnyApp-Windows-CompliantorAADHJ
 
 
 <table class='table-settings'>
@@ -1607,9 +1507,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 </tr>
 </table>
 
-###### Table 32. Settings - CA206-Internals-BaseProtection-AnyApp-Windows-CompliantorAADHJ
-
-
 <h3 id="section-19">CA400-GuestUsers-IdentityProtection-AnyApp-AnyPlatform-MFA</h3>
 
 <table class='table-settings'>
@@ -1641,8 +1538,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 <td class='property-column2'>Tuesday, 2 January 2024 10:52:19</td>
 </tr>
 </table>
-
-###### Table 33. Basics - CA400-GuestUsers-IdentityProtection-AnyApp-AnyPlatform-MFA
 
 
 <table class='table-settings'>
@@ -1694,8 +1589,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 </tr>
 </table>
 
-###### Table 34. Settings - CA400-GuestUsers-IdentityProtection-AnyApp-AnyPlatform-MFA
-
 
 <h3 id="section-20">CA401-GuestUsers-AttackSurfaceReduction-AllApps-AnyPlatform-BlockNonGuestAppAccess</h3>
 
@@ -1728,8 +1621,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 <td class='property-column2'>Wednesday, 27 March 2024 15:06:48</td>
 </tr>
 </table>
-
-###### Table 35. Basics - CA401-GuestUsers-AttackSurfaceReduction-AllApps-AnyPlatform-BlockNonGuestAppAccess
 
 
 <table class='table-settings'>
@@ -1777,8 +1668,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 </tr>
 </table>
 
-###### Table 36. Settings - CA401-GuestUsers-AttackSurfaceReduction-AllApps-AnyPlatform-BlockNonGuestAppAccess
-
 
 <h3 id="section-21">CA402-GuestUsers-IdentityProtection-AllApps-AnyPlatform-SigninFrequency</h3>
 
@@ -1812,7 +1701,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 </tr>
 </table>
 
-###### Table 37. Basics - CA402-GuestUsers-IdentityProtection-AllApps-AnyPlatform-SigninFrequency
 
 
 <table class='table-settings'>
@@ -1867,8 +1755,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 </tr>
 </table>
 
-###### Table 38. Settings - CA402-GuestUsers-IdentityProtection-AllApps-AnyPlatform-SigninFrequency
-
 
 <h2 id="section-22">Named Locations</h2>
 <h3 id="section-23">ALLOWED COUNTRIES</h3>
@@ -1903,8 +1789,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 </tr>
 </table>
 
-###### Table 39. Basics - ALLOWED COUNTRIES
-
 
 <table class='table-settings'>
 <tr class='table-header1'>
@@ -1924,8 +1808,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 <td class='property-column2'><br /><br /></td>
 </tr>
 </table>
-
-###### Table 40. Settings - ALLOWED COUNTRIES
 
 
 
