@@ -35,8 +35,7 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
     - [CA202-Internals-IdentityProtection-AllApps-WindowsMacOS-SigninFrequency-UnmanagedDevices](#ca202-internals-identityprotection-allapps-windowsmacos-signinfrequency-unmanageddevices)
     - [CA203-Internals-AppProtection-MicrosoftIntuneEnrollment-AnyPlatform-MFA](#ca203-internals-appprotection-microsoftintuneenrollment-anyplatform-mfa)
     - [CA204-Internals-AttackSurfaceReduction-AllApps-AnyPlatform-BlockUnknownPlatforms](#ca204-internals-attacksurfacereduction-allapps-anyplatform-blockunknownplatforms)
-    - [CA205-Internals-IdentityProtection-AllApps-AnyPlatform-CombinedRegistration](#ca205-internals-identityprotection-allapps-anyplatform-combinedregistration)
-    - [CA206-Internals-BaseProtection-AnyApp-Windows-CompliantorAADHJ](#ca206-internals-baseprotection-anyapp-windows-compliantoraadhj)
+    - [CA205-Internals-BaseProtection-AnyApp-Windows-CompliantorAADHJ](#ca205-internals-baseprotection-anyapp-windows-compliantoraadhj)
     - [CA400-GuestUsers-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca400-guestusers-identityprotection-anyapp-anyplatform-mfa)
     - [CA401-GuestUsers-AttackSurfaceReduction-AllApps-AnyPlatform-BlockNonGuestAppAccess](#ca401-guestusers-attacksurfacereduction-allapps-anyplatform-blocknonguestappaccess)
     - [CA402-GuestUsers-IdentityProtection-AllApps-AnyPlatform-SigninFrequency](#ca402-guestusers-identityprotection-allapps-anyplatform-signinfrequency)
@@ -178,16 +177,9 @@ This policy blocks unknown/unsupported device platforms for internals.
 > Currently only Windows, MacOS, Android and iOS are supported. If (for example) Linux or Windows Phone is allowed you need to modify the policy.
 
 > [!IMPORTANT]
-> Verify the included group(s) and/or add your custom groups which have all internals in it.
+> Verify the included group(s) and/or add your custom groups which have all internals in it..
 
-### CA205-Internals-IdentityProtection-AllApps-AnyPlatform-CombinedRegistration
-
-This policy requires security information registration for internals only from a managed or compliant device.
-
-> [!IMPORTANT]
-> Verify the included group(s) and/or add your custom groups which have all internals in it.
-
-### CA206-Internals-BaseProtection-AnyApp-Windows-CompliantorAADHJ
+### CA205-Internals-BaseProtection-AnyApp-Windows-CompliantorAADHJ
 
 This policy requires internals to make use of a Windows device that is compliant or AADHJ (Azure AD Hybrid Joined / Entra ID Hybrid Joined) while accessing any cloud app.
 
