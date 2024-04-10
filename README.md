@@ -2,9 +2,12 @@
 
 This conditional access baseline is based on the Microsoft Conditional Access Baseline by Claus Jespersen. This one is slightly minimized and less dificult to understand but still protects almost everything you could wish for. Use this baseline to start off with and expend or modify where needed.
 
-> [!NOTE]
+> [!TIP]
 > There's no need to create policies, groups or named locations yourself. This can be done automated using Mick-K his [Intune Management tool](https://github.com/Micke-K/IntuneManagement). This is described in [Importing the baseline](#importing-the-baseline).
 
+
+> [!IMPORTANT]
+> Do not forget to add your break the glass/emergency access accounts to the exclusion group. When using this baseline that would be **CA-BreakGlassAccounts - Exclude**.
 
 # Table of Contents
 - [Conditional access Baselne](#conditional-access-baselne)
@@ -229,7 +232,7 @@ The script also support dependencies e.g. an App Protection is depending on an A
 
 ### Setup IntuneManagement
 
-Start by downloading the files in GitHub. Extract the Github repo somewhere on your device. Remember the path where the tool is stored. For example: *C:\Intune\IntuneManagement*.
+Start by downloading the files in GitHub. Extract the Github repo somewhere on your device. For example: *C:\Intune\IntuneManagement*.
 
 ![IntuneManagement2](./images/IntuneManagement2.png)
 
@@ -249,7 +252,7 @@ Start by authenticating to your tenant with the profile icon in the top right.
 
 ![IntuneManagement3](./images/IntuneManagement3.png)
 
-In the modern authentication window that pops up, sign in with an account that has appropriate permissions, if unsure use Global Administrator. After sign-in you will be prompted to accept permissions for Microsoft Intune PowerShell, DO NOT tick the box to consent on behalf of your organization.
+In the modern authentication window that pops up, sign in with an account that has appropriate permissions, if unsure use Global Administrator. After sign-in you will be prompted to accept permissions for Microsoft Intune PowerShell, **DO NOT** tick the box to consent on behalf of your organisation.
 
 ![IntuneManagement4](./images/IntuneManagement4.png)
 
@@ -261,11 +264,11 @@ From here, select the profile icon in the top right corner and then Request Cons
 
 ![IntuneManagement6](./images/IntuneManagement6.png)
 
-Go ahead and accept the popup again, this should clear all the red text on the left hand-side.
+Go ahead and accept the popup again, this should clear all the red text on the left hand-side. **DO NOT** tick the box to consent on behalf of your organisation.
 
 ![IntuneManagement7](./images/IntuneManagement7.png)
 
-Now we are ready to rock 'n' roll and we can start importing, exporting, or comparing tenant configurations.
+Now we can start importing, exporting, or comparing tenant configurations. 
 
 ### Import the configuration
 
@@ -273,7 +276,7 @@ Now we are ready to rock 'n' roll and we can start importing, exporting, or comp
 
 ![IntuneManagement8](./images/IntuneManagement8.png)
 
-2: Select the folder where you stored the Modern Workplace Blueprint.
+2: Select the folder where you stored the conditional access policies.
 
 3: Decide if you want to import all the assignments or assign all policies yourself.
 
@@ -282,3 +285,10 @@ Now we are ready to rock 'n' roll and we can start importing, exporting, or comp
 5: Click **Import**
 
 ![IntuneManagement9](./images/IntuneManagement9.png)
+
+Once the importing is complete, all policies will be available for you to modify and/or enable them.
+
+> [!CAUTION]
+> Be careful activating the policies! Make sure you have decent exclusions and/or a break the glass account in place. Enable the policies one by one or start with report-only.
+
+![CA Policies](./images/image2.png)
