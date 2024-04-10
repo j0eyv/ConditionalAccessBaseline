@@ -1,3 +1,120 @@
+<style type="text/css">
+    
+html { }
+
+html,body {
+    margin:0;
+    padding:0 px;
+    position:relative;
+}
+
+h6 {
+    margin-top: 2px !important;
+}
+
+.table-settings {
+    padding-right: 5px;
+    font-family:"Arial",sans-serif;
+    font-size: 11px;
+    margin-bottom: 0px !important;
+}
+
+.table-settings p {
+    margin-bottom: 0px !important;
+}
+
+.table-settings TR:nth-child(even) {
+    background-color: #FAFAFA
+}
+
+.table-settings td {
+    text-align:left;
+    border-width: 5px;
+    padding: 5px !important;
+    border-style: none;
+    border-color: #F2F2F2;
+    border-bottom: 1px solid #ddd;
+}
+
+.table-header1 td {
+    background-color: #D0D0D0;
+    text-align: left;
+    font-size: 12px;
+    font-weight: bold;
+    border-width: 5px;
+    padding: 5px;
+    border-style: none;
+    border-color: #F2F2F2;
+}
+
+.category-level1 {
+    background-color: #E0E0E0;
+    font-size: 11px;
+    font-weight: bold;
+}
+
+.category-level2 {
+    background-color: #E0E0E0;
+    font-size: 11px;
+}
+
+.anchor-style {
+    font-family:"Arial",sans-serif;
+    font-size: 11px;
+}
+
+.anchor-level2 {
+
+}
+
+.table-value {
+    border: 0px;
+    width: 100%;
+    padding: 0px;
+    font-family:"Arial",sans-serif;
+    font-size: 11px;
+}
+
+.table-value th {
+    background-color: #F9F9F9;
+    padding: 0px;
+    text-align:left;
+    font-size: 11px;
+    padding-right: 0px;
+    padding-top: 3px;
+    padding-bottom: 3px;
+    font-weight: normal;
+    border-width: 0px;
+    border-style: none;
+}
+
+.table-value tr {
+    background-color: #FFFFFF;
+}
+
+.table-value td {
+    border-bottom: 0;
+    padding: 1px;
+}
+
+.row-new-property {
+    background-color: #E7E7E7 !important;
+}
+
+.description summary {
+    list-style: none;
+    cursor: pointer;
+}
+
+details.description[open] summary::after {
+  content: attr(data-open);
+}
+
+details.description:not([open]) summary::after {
+  content: attr(data-close);
+}
+
+</style>
 # Conditional Access Baseline
 
 This conditional access baseline is based on the Microsoft Conditional Access Baseline by Claus Jespersen. This one is slightly minimized and less dificult to understand but still protects almost everything you could wish for. Use this baseline to start off with and expend where needed.
@@ -10,30 +127,52 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 ➡ Framework resources: https://github.com/microsoft/ConditionalAccessforZeroTrustResources
 
 
+
 ## Table of Contents
 - [Conditional access](#section-1)
+
   - [Conditional access policies](#section-2)
+
     - [CA000-Global-IdentityProtection-AnyApp-AnyPlatform-MFA](#section-3)
+
     - [CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryWhitelist](#section-4)
+
     - [CA002-Global-IdentityProtection-AnyApp-AnyPlatform-Block-LegacyAuthentication](#section-5)
+
     - [CA003-Global-BaseProtection-RegisterOrJoin-AnyPlatform-MFA](#section-6)
+
     - [CA004-Global-IdentityProtection-AnyApp-AnyPlatform-AuthenticationFlows](#section-7)
+
     - [CA005-Global-DataProtection-Office365-AnyPlatform-Unmanaged-AppEnforcedRestrictions-BlockDownload](#section-8)
+
     - [CA100-Admins-IdentityProtection-AdminPortals-AnyPlatform-MFA](#section-9)
+
     - [CA101-Admins-IdentityProtection-AnyApp-AnyPlatform-MFA](#section-10)
+
     - [CA102-Admins-IdentityProtection-AllApps-AnyPlatform-SigninFrequency](#section-11)
+
     - [CA200-Internals-IdentityProtection-AnyApp-AnyPlatform-MFA](#section-12)
+
     - [CA201-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRisk](#section-13)
+
     - [CA202-Internals-IdentityProtection-AllApps-WindowsMacOS-SigninFrequency-UnmanagedDevices](#section-14)
+
     - [CA203-Internals-AppProtection-MicrosoftIntuneEnrollment-AnyPlatform-MFA](#section-15)
+
     - [CA204-Internals-AttackSurfaceReduction-AllApps-AnyPlatform-BlockUnknownPlatforms](#section-16)
+
     - [CA205-Internals-IdentityProtection-AllApps-AnyPlatform-CombinedRegistration](#section-17)
+
     - [CA206-Internals-BaseProtection-AnyApp-Windows-CompliantorAADHJ](#section-18)
+
     - [CA400-GuestUsers-IdentityProtection-AnyApp-AnyPlatform-MFA](#section-19)
+
     - [CA401-GuestUsers-AttackSurfaceReduction-AllApps-AnyPlatform-BlockNonGuestAppAccess](#section-20)
+
     - [CA402-GuestUsers-IdentityProtection-AllApps-AnyPlatform-SigninFrequency](#section-21)
 
   - [Named Locations](#section-22)
+
     - [ALLOWED COUNTRIES](#section-23)
 
 
