@@ -120,7 +120,7 @@ This policy requires MFA for all users, to register or join a device to your ten
 > [!TIP]
 > Make sure to disable *Require Multifactor Authentication to register or join devices with Microsoft Entra*. This can be found under https://portal.azure.com -> Entra ID -> Devices -> Device settings.
 
-![Image1](Images\image1.png)
+![Image1](./Images/image1.png)
 
 ### CA004-Global-IdentityProtection-AnyApp-AnyPlatform-AuthenticationFlows
 
