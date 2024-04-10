@@ -139,11 +139,48 @@ This policy requires MFA for all internal identities, for all cloud applications
 > Verify the included group(s) and/or add your custom groups which have all internals in it.
 
 ### CA201-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRisk
+
+This policy blocks all internal users which have a **high risk** (sign-in and user risk) status, to all cloud apps, from all platforms.
+
+> [!IMPORTANT]
+> Verify the included group(s) and/or add your custom groups which have all internals in it.
+
 ### CA202-Internals-IdentityProtection-AllApps-WindowsMacOS-SigninFrequency-UnmanagedDevices
+
+This policy sets a Sign-in frequency to a maximum of 12 hours for internals, to all cloud apps, using unmanaged Windows or MacOS devices.
+
+> [!IMPORTANT]
+> Verify the included group(s) and/or add your custom groups which have all internals in it.
+
 ### CA203-Internals-AppProtection-MicrosoftIntuneEnrollment-AnyPlatform-MFA
+
+This policy requires MFA for internals when enrolling their devices in Intune.
+
+> [!IMPORTANT]
+> Verify the included group(s) and/or add your custom groups which have all internals in it.
+
 ### CA204-Internals-AttackSurfaceReduction-AllApps-AnyPlatform-BlockUnknownPlatforms
+
+This policy blocks unknown/unsupported device platforms for internals.
+
+> [!NOTE]
+> Currently only Windows, MacOS, Android and iOS are supported. If (for example) Linux or Windows Phone is allowed you need to modify the policy.
+
+> [!IMPORTANT]
+> Verify the included group(s) and/or add your custom groups which have all internals in it.
+
 ### CA205-Internals-IdentityProtection-AllApps-AnyPlatform-CombinedRegistration
+
+This policy requires secrity information registration for internals only from a managed or compliant device.
+
+> [!IMPORTANT]
+> Verify the included group(s) and/or add your custom groups which have all internals in it.
+
 ### CA206-Internals-BaseProtection-AnyApp-Windows-CompliantorAADHJ
+
+> [!IMPORTANT]
+> Verify the included group(s) and/or add your custom groups which have all internals in it.
+
 ### CA400-GuestUsers-IdentityProtection-AnyApp-AnyPlatform-MFA
 ### CA401-GuestUsers-AttackSurfaceReduction-AllApps-AnyPlatform-BlockNonGuestAppAccess
 ### CA402-GuestUsers-IdentityProtection-AllApps-AnyPlatform-SigninFrequency
