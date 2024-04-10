@@ -225,7 +225,7 @@ This makes it easy to backup or clone a complete Intune environment. The scripts
 
 The script also support dependencies e.g. an App Protection is depending on an App, Policy Sets are depending on Compliance Policies, objects has Scope Tags etc. Dependency support requires exported json files and that the dependency objects are imported in the environment. The script uses the exported json files to get the Id and name's of the exported object and uses that information and updates Id's before import an object from a json file. The Bulk Import form shows the import order of the objects. The objects with the lowest order number will be imported first.
 
-![IntuneManagement1](Images\IntuneManagement1.png)
+![IntuneManagement1](.\Images\IntuneManagement1.png)
 
 > [!TIP]
 > The following tool is used: https://github.com/Micke-K/IntuneManagement. Always download the lastest version before importing or exporting data.
