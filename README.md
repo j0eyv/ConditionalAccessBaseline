@@ -2,6 +2,9 @@
 
 This conditional access baseline is based on the Microsoft Conditional Access Baseline by Claus Jespersen. This one is slightly minimized and less dificult to understand but still protects almost everything you could wish for. Use this baseline to start off with and expend or modify where needed.
 
+> [!NOTE]
+> There's no need to create policies, groups or named locations yourself. This can be done automated using Mick-K his [Intune Management tool](https://github.com/Micke-K/IntuneManagement). This is described in [Importing the baseline](#importing-the-baseline).
+
 
 # Table of Contents
 - [Conditional access Baselne](#conditional-access-baselne)
