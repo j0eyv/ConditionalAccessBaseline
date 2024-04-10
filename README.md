@@ -12,9 +12,13 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
   - [Resources](#resources)
   - [Version history](#version-history)
   - [Changelog](#changelog)
+  - [Persona's](#personas)
+      - [Global](#global)
+      - [Admins](#admins)
+      - [Internals](#internals)
+      - [Guests](#guests)
   - [Conditional access policies](#conditional-access-policies)
     - [CA000-Global-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca000-global-identityprotection-anyapp-anyplatform-mfa)
-    - [CA000-Global-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca000-global-identityprotection-anyapp-anyplatform-mfa-1)
     - [CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryWhitelist](#ca001-global-attacksurfacereduction-anyapp-anyplatform-block-countrywhitelist)
     - [CA002-Global-IdentityProtection-AnyApp-AnyPlatform-Block-LegacyAuthentication](#ca002-global-identityprotection-anyapp-anyplatform-block-legacyauthentication)
     - [CA003-Global-BaseProtection-RegisterOrJoin-AnyPlatform-MFA](#ca003-global-baseprotection-registerorjoin-anyplatform-mfa)
@@ -57,20 +61,83 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 
 Changes are documented here once they are made.
 
+## Persona's
+
+#### Global
+Global is a persona/placeholder for policies that are general 
+in nature or do not only apply to one persona. So it is used 
+to define policies that apply to all personas or don't apply to 
+one specific persona. The reason for having this persona is to 
+be able to have a model where we can protect all relevant 
+scenarios. It should be used to hold policies that apply to all 
+users or policies that enforce protection on scenarios not 
+covered by policies for other personas
+
+#### Admins
+We define admins in this context as any non-guest identity 
+(cloud or synced) that have any Azure AD or other Microsoft 
+365 admin Role (like in MDCA, Exchange, Defender for 
+Endpoints or Compliance). As guests who have such roles are 
+covered in a separate persona, guests are excluded from this 
+persona.
+
+#### Internals
+Internals cover all users who have an AD account synced to 
+Azure AD who are employees of the company and work in a 
+standard end-user role.
+
+#### Guests
+Guests holds all users who have an Azure AD guest account 
+that has been invited into the customer tenant
+
 
 ## Conditional access policies
 
 ### CA000-Global-IdentityProtection-AnyApp-AnyPlatform-MFA
-### CA000-Global-IdentityProtection-AnyApp-AnyPlatform-MFA
+
+This policy requires MFA for all cloud apps, from every platform. It captures all authentications in scope not captured by other MFA policies.
+
 ### CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryWhitelist
+
+This policy blocks all countries, to all cloud apps, from every platform except for the countries configured in the named location **ALLOWED COUNTRIES**. This named location is excluded in this policy.
+
 ### CA002-Global-IdentityProtection-AnyApp-AnyPlatform-Block-LegacyAuthentication
+
+This policy blocks legacy authentication for all users, to all cloud apps, from any platform.
+
 ### CA003-Global-BaseProtection-RegisterOrJoin-AnyPlatform-MFA
+
+This policy requires MFA for all users, to register or join a device to your tenant/environment. Make sure to disable *Require Multifactor Authentication to register or join devices with Microsoft Entra*. This can be found under https://portal.azure.com -> Entra ID -> Devices -> Device settings.
+
+![Image1](Images\image1.png)
+
 ### CA004-Global-IdentityProtection-AnyApp-AnyPlatform-AuthenticationFlows
+
+This policy prevents all users from transfering authentication flows from PC to mobile for example. This feature is currently in preview.
+
 ### CA005-Global-DataProtection-Office365-AnyPlatform-Unmanaged-AppEnforcedRestrictions-BlockDownload
+
+This policy prevents all users from downloading, printing or syncing Office 365 data from an unmanaged device. It requires App Enforce Restrictions.
+
 ### CA100-Admins-IdentityProtection-AdminPortals-AnyPlatform-MFA
+
+This policy requires MFA for certain admin roles when they access the Admin Portals.
+
 ### CA101-Admins-IdentityProtection-AnyApp-AnyPlatform-MFA
+
+This policy requires MFA for certain admin roles when they access the any cloud app. 
+
 ### CA102-Admins-IdentityProtection-AllApps-AnyPlatform-SigninFrequency
+
+This policy sets a Sign-in frequency for certain admin roles to a maximum of 12 hours. Admins need to re-authenticate of logon after 12 hours.
+
 ### CA200-Internals-IdentityProtection-AnyApp-AnyPlatform-MFA
+
+This policy requires MFA for all internal identities, for all cloud applications, from any platform.
+
+> [!IMPORTANT]
+> Verify the included group(s) and/or add your custom groups which have all internals in it.
+
 ### CA201-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRisk
 ### CA202-Internals-IdentityProtection-AllApps-WindowsMacOS-SigninFrequency-UnmanagedDevices
 ### CA203-Internals-AppProtection-MicrosoftIntuneEnrollment-AnyPlatform-MFA
