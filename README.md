@@ -1,6 +1,6 @@
 # Conditional access Baselne
 
-This conditional access baseline is based on the Microsoft Conditional Access Baseline by Claus Jespersen. This one is slightly minimized and less dificult to understand but still protects almost everything you could wish for. Use this baseline to start off with and expend or modify where needed.
+This conditional access baseline is based on the Microsoft Conditional Access Baseline by Claus Jespersen. This one is slightly minimized and less difficult to understand but still protects almost everything you could wish for. Use this baseline to start off with and expend or modify where needed.
 
 > [!TIP]
 > There's no need to create policies, groups or named locations yourself. This can be done automated using Mick-K his [Intune Management tool](https://github.com/Micke-K/IntuneManagement). This is described in [Importing the baseline](#importing-the-baseline).
@@ -56,7 +56,6 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 
 
 ## Version history
-
 | Version nr | Release date |
 | -------- | -------- |
 | 2024.4.1 | Released 10-04-2024 |
@@ -64,8 +63,8 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 
 
 ## Changelog
-
 Changes are documented here once they are made.
+
 
 ## Persona's
 
@@ -113,7 +112,6 @@ This policy blocks all countries, to all cloud apps, from every platform except 
 > Modify the named location with your approved countries. By default only Belgium, Luxembourgh and Netherlands are allowed to have access from.
 
 ![CA001](./Images/CA001.png)
-
 
 ### CA002-Global-IdentityProtection-AnyApp-AnyPlatform-Block-LegacyAuthentication
 
