@@ -52,6 +52,8 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 
 ➡ Framework resources: https://github.com/microsoft/ConditionalAccessforZeroTrustResources
 
+➡ idPowerToys for CA documentation: https://idpowertoys.merill.net/
+
 
 ## Version history
 
@@ -101,6 +103,8 @@ that has been invited into the customer tenant
 
 This policy requires MFA for all cloud apps, from every platform. It captures all authentications in scope not captured by other MFA policies.
 
+![CA000](./Images/CA000.png)
+
 ### CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryWhitelist
 
 This policy blocks all countries, to all cloud apps, from every platform except for the countries configured in the named location **ALLOWED COUNTRIES**. This named location is excluded in this policy.
@@ -108,9 +112,14 @@ This policy blocks all countries, to all cloud apps, from every platform except 
 > [!IMPORTANT]
 > Modify the named location with your approved countries. By default only Belgium, Luxembourgh and Netherlands are allowed to have access from.
 
+![CA001](./Images/CA001.png)
+
+
 ### CA002-Global-IdentityProtection-AnyApp-AnyPlatform-Block-LegacyAuthentication
 
 This policy blocks legacy authentication for all users, to all cloud apps, from any platform.
+
+![CA002](./Images/CA002.png)
 
 ### CA003-Global-BaseProtection-RegisterOrJoin-AnyPlatform-MFA
 
@@ -119,55 +128,74 @@ This policy requires MFA for all users, to register or join a device to your ten
 > [!TIP]
 > Make sure to disable *Require Multifactor Authentication to register or join devices with Microsoft Entra*. This can be found under https://portal.azure.com -> Entra ID -> Devices -> Device settings.
 
-![Image1](./Images/image1.png)
+![CA003](./Images/CA003.png)
 
 ### CA004-Global-IdentityProtection-AnyApp-AnyPlatform-AuthenticationFlows
 
 This policy prevents all users from transfering authentication flows from PC to mobile for example. This feature is currently in preview.
 
+![CA004](./Images/CA004.png)
+
 ### CA005-Global-DataProtection-Office365-AnyPlatform-Unmanaged-AppEnforcedRestrictions-BlockDownload
 
 This policy prevents all users from downloading, printing or syncing Office 365 data from an unmanaged device. It requires App Enforce Restrictions.
+
+![CA005](./Images/CA005.png)
 
 ### CA100-Admins-IdentityProtection-AdminPortals-AnyPlatform-MFA
 
 This policy requires MFA for certain admin roles when they access the Admin Portals.
 
+![CA100](./Images/CA100.png)
+
 ### CA101-Admins-IdentityProtection-AnyApp-AnyPlatform-MFA
 
 This policy requires MFA for certain admin roles when they access the any cloud app. 
+
+![CA101](./Images/CA101.png)
 
 ### CA102-Admins-IdentityProtection-AllApps-AnyPlatform-SigninFrequency
 
 This policy sets a Sign-in frequency for certain admin roles to a maximum of 12 hours. Admins need to re-authenticate of logon after 12 hours.
 
+![CA102](./Images/CA102.png)
+
 ### CA200-Internals-IdentityProtection-AnyApp-AnyPlatform-MFA
 
 This policy requires MFA for all internal identities, for all cloud applications, from any platform.
 
+
 > [!IMPORTANT]
-> Verify the included group(s) and/or add your custom groups which have all internals in it.
+> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5_DEV is added as an example.
+
+![CA200](./Images/CA200.png)
 
 ### CA201-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRisk
 
 This policy blocks all internal users which have a **high risk** (sign-in and user risk) status, to all cloud apps, from all platforms.
 
 > [!IMPORTANT]
-> Verify the included group(s) and/or add your custom groups which have all internals in it.
+> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5_DEV is added as an example.
+
+![CA201](./Images/CA201.png)
 
 ### CA202-Internals-IdentityProtection-AllApps-WindowsMacOS-SigninFrequency-UnmanagedDevices
 
 This policy sets a Sign-in frequency to a maximum of 12 hours for internals, to all cloud apps, using unmanaged Windows or MacOS devices.
 
 > [!IMPORTANT]
-> Verify the included group(s) and/or add your custom groups which have all internals in it.
+> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5_DEV is added as an example.
+
+![CA202](./Images/CA202.png)
 
 ### CA203-Internals-AppProtection-MicrosoftIntuneEnrollment-AnyPlatform-MFA
 
 This policy requires MFA for internals when enrolling their devices in Intune.
 
 > [!IMPORTANT]
-> Verify the included group(s) and/or add your custom groups which have all internals in it.
+> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5_DEV is added as an example.
+
+![CA203](./Images/CA203.png)
 
 ### CA204-Internals-AttackSurfaceReduction-AllApps-AnyPlatform-BlockUnknownPlatforms
 
@@ -177,18 +205,24 @@ This policy blocks unknown/unsupported device platforms for internals.
 > Currently only Windows, MacOS, Android and iOS are supported. If (for example) Linux or Windows Phone is allowed you need to modify the policy.
 
 > [!IMPORTANT]
-> Verify the included group(s) and/or add your custom groups which have all internals in it..
+> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5_DEV is added as an example.
+
+![CA204](./Images/CA204.png)
 
 ### CA205-Internals-BaseProtection-AnyApp-Windows-CompliantorAADHJ
 
 This policy requires internals to make use of a Windows device that is compliant or AADHJ (Azure AD Hybrid Joined / Entra ID Hybrid Joined) while accessing any cloud app.
 
 > [!IMPORTANT]
-> Verify the included group(s) and/or add your custom groups which have all internals in it.
+> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5_DEV is added as an example.
+
+![CA205](./Images/CA205.png)
 
 ### CA400-GuestUsers-IdentityProtection-AnyApp-AnyPlatform-MFA
 
 This policy requires guest to use MFA, from any platform when accessing any cloud app.
+
+![CA400](./Images/CA400.png)
 
 ### CA401-GuestUsers-AttackSurfaceReduction-AllApps-AnyPlatform-BlockNonGuestAppAccess
 
@@ -197,10 +231,13 @@ This policy blocks access for guests to all cloud apps (except for those exclude
 > [!IMPORTANT]
 > Make sure to exclude additional cloud apps if any guest needs access to these apps.
 
+![CA401](./Images/CA401.png)
+
 ### CA402-GuestUsers-IdentityProtection-AllApps-AnyPlatform-SigninFrequency
 
 This policy sets a Sign-in frequency to a maximum of 12 hours for guests, to all cloud apps, using any device.
 
+![CA402](./Images/CA402.png)
 
 ## Named locations
 
