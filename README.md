@@ -1,4 +1,4 @@
-# Conditional access Baselne
+# Conditional access Baseline
 
 This conditional access baseline is based on the Microsoft Conditional Access Baseline by Claus Jespersen. This one is slightly minimized and less difficult to understand but still protects almost everything you could wish for. Use this baseline to start off with and expend or modify where needed.
 
@@ -10,7 +10,7 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 > Do not forget to add your break the glass/emergency access accounts to the exclusion group. When using this baseline that would be **CA-BreakGlassAccounts - Exclude**.
 
 # Table of Contents
-- [Conditional access Baselne](#conditional-access-baselne)
+- [Conditional access Baseline](#conditional-access-baseline)
 - [Table of Contents](#table-of-contents)
   - [Resources](#resources)
   - [Version history](#version-history)
@@ -224,7 +224,7 @@ This policy requires guest to use MFA, from any platform when accessing any clou
 
 ### CA401-GuestUsers-AttackSurfaceReduction-AllApps-AnyPlatform-BlockNonGuestAppAccess
 
-This policy blocks access for guests to all cloud apps (except for those excluded), from any device
+This policy blocks access for guests to all cloud apps (except for those excluded), from any device.
 
 > [!IMPORTANT]
 > Make sure to exclude additional cloud apps if any guest needs access to these apps.
