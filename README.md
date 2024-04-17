@@ -40,6 +40,7 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
     - [CA401-GuestUsers-AttackSurfaceReduction-AllApps-AnyPlatform-BlockNonGuestAppAccess](#ca401-guestusers-attacksurfacereduction-allapps-anyplatform-blocknonguestappaccess)
     - [CA402-GuestUsers-IdentityProtection-AllApps-AnyPlatform-SigninFrequency](#ca402-guestusers-identityprotection-allapps-anyplatform-signinfrequency)
   - [Named locations](#named-locations)
+  - [Considerations](#considerations)
   - [Importing the baseline](#importing-the-baseline)
     - [Setup IntuneManagement](#setup-intunemanagement)
     - [Import the configuration](#import-the-configuration)
@@ -243,6 +244,10 @@ This policy sets a Sign-in frequency to a maximum of 12 hours for guests, to all
 | -------- | -------- | -------- |
 | ALLOWED COUNTRIES | Countries (IP) | CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryWhitelist |
 
+## Considerations
+1. You might want to remove the "CA - BreakGlassAccounts - Exclude" group from Admin MFA policies (CA101, CA102) if they use MFA and/or only exclude 1 single BreakGlass account.
+
+2. You might want to lower the risk state in CA201 and/or separate User-Risk and Sign-in Risk in 2 single policies.
 
 ## Importing the baseline
 
