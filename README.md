@@ -15,6 +15,7 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
   - [Resources](#resources)
   - [Version history](#version-history)
   - [Changelog](#changelog)
+    - [2024.6.1](#202461)
   - [Persona's](#personas)
       - [Global](#global)
       - [Admins](#admins)
@@ -27,18 +28,25 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
     - [CA003-Global-BaseProtection-RegisterOrJoin-AnyPlatform-MFA](#ca003-global-baseprotection-registerorjoin-anyplatform-mfa)
     - [CA004-Global-IdentityProtection-AnyApp-AnyPlatform-AuthenticationFlows](#ca004-global-identityprotection-anyapp-anyplatform-authenticationflows)
     - [CA005-Global-DataProtection-Office365-AnyPlatform-Unmanaged-AppEnforcedRestrictions-BlockDownload](#ca005-global-dataprotection-office365-anyplatform-unmanaged-appenforcedrestrictions-blockdownload)
+    - [CA006-Global-DataProtection-Office365-iOSenAndroid-RequireAppProtection](#ca006-global-dataprotection-office365-iosenandroid-requireappprotection)
     - [CA100-Admins-IdentityProtection-AdminPortals-AnyPlatform-MFA](#ca100-admins-identityprotection-adminportals-anyplatform-mfa)
     - [CA101-Admins-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca101-admins-identityprotection-anyapp-anyplatform-mfa)
     - [CA102-Admins-IdentityProtection-AllApps-AnyPlatform-SigninFrequency](#ca102-admins-identityprotection-allapps-anyplatform-signinfrequency)
+    - [CA103-Admins-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser](#ca103-admins-identityprotection-allapps-anyplatform-persistentbrowser)
     - [CA200-Internals-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca200-internals-identityprotection-anyapp-anyplatform-mfa)
     - [CA201-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRisk](#ca201-internals-identityprotection-anyapp-anyplatform-block-highrisk)
     - [CA202-Internals-IdentityProtection-AllApps-WindowsMacOS-SigninFrequency-UnmanagedDevices](#ca202-internals-identityprotection-allapps-windowsmacos-signinfrequency-unmanageddevices)
     - [CA203-Internals-AppProtection-MicrosoftIntuneEnrollment-AnyPlatform-MFA](#ca203-internals-appprotection-microsoftintuneenrollment-anyplatform-mfa)
     - [CA204-Internals-AttackSurfaceReduction-AllApps-AnyPlatform-BlockUnknownPlatforms](#ca204-internals-attacksurfacereduction-allapps-anyplatform-blockunknownplatforms)
     - [CA205-Internals-BaseProtection-AnyApp-Windows-CompliantorAADHJ](#ca205-internals-baseprotection-anyapp-windows-compliantoraadhj)
+    - [CA206-Internals-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser](#ca206-internals-identityprotection-allapps-anyplatform-persistentbrowser)
+    - [CA207-Internals-AttackSurfaceReduction-SelectedApps-AnyPlatform-BLOCK](#ca207-internals-attacksurfacereduction-selectedapps-anyplatform-block)
+    - [CA208-Internals-BaseProtection-AnyApp-MacOS-Compliant](#ca208-internals-baseprotection-anyapp-macos-compliant)
     - [CA400-GuestUsers-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca400-guestusers-identityprotection-anyapp-anyplatform-mfa)
     - [CA401-GuestUsers-AttackSurfaceReduction-AllApps-AnyPlatform-BlockNonGuestAppAccess](#ca401-guestusers-attacksurfacereduction-allapps-anyplatform-blocknonguestappaccess)
     - [CA402-GuestUsers-IdentityProtection-AllApps-AnyPlatform-SigninFrequency](#ca402-guestusers-identityprotection-allapps-anyplatform-signinfrequency)
+    - [CA403-Guests-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser](#ca403-guests-identityprotection-allapps-anyplatform-persistentbrowser)
+    - [CA404-Guests-AttackSurfaceReduction-SelectedApps-AnyPlatform-BLOCK](#ca404-guests-attacksurfacereduction-selectedapps-anyplatform-block)
   - [Named locations](#named-locations)
   - [Considerations](#considerations)
   - [Importing the baseline](#importing-the-baseline)
@@ -60,11 +68,20 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 | Version nr | Release date |
 | -------- | -------- |
 | 2024.4.1 | Released 10-04-2024 |
-| 2024.x.x | Released xx-xx-2024 |
+| 2024.6.1 | Released 26-06-2024 |
 
 
 ## Changelog
-Changes are documented here once they are made.
+### 2024.6.1
+* CA208: Added this policy to require MacOS device compliance 
+* CA207: Added this policy to explicitly block certain apps on any platform for the internals persona.
+* CA404: Added this policy to explicitly block certain apps on any platform for the guest persona.
+* CA103: Added this policy to have never persistent browser sessions on any platform for admins persona
+* CA206: Added this policy to have never persistent browser sessions on any platform for internals persona
+* CA403: Added this policy to have never persistent browser sessions on any platform for admins persona
+* CA006: Added this policy to require App Protection for iOS and Android devices when accessing Exchange Online and SharePoint Online.
+* CA100: Added a few Admin roles to require MFA.
+* CA101: Added a few Admin roles to require MFA.
 
 
 ## Persona's
@@ -141,15 +158,21 @@ This policy prevents all users from downloading, printing or syncing Office 365 
 
 ![CA005](./Images/CA005.png)
 
+### CA006-Global-DataProtection-Office365-iOSenAndroid-RequireAppProtection
+
+This policy requires App Protection policies for all users when accessing Office 365 data from iOS or Android devices. Admin roles are excluded to make sure the Microsoft 365 App's on the iOS and Android devices do work. This one is designed on the principle that admin roles are only assigned to admin accounts!
+
+![CA006](./Images/CA006.png)
+
 ### CA100-Admins-IdentityProtection-AdminPortals-AnyPlatform-MFA
 
-This policy requires MFA for certain admin roles when they access the Admin Portals.
+This policy requires MFA for certain admin roles when they access the access Admin Portals. This one is designed on the principle that admin roles are only assigned to admin accounts!
 
 ![CA100](./Images/CA100.png)
 
 ### CA101-Admins-IdentityProtection-AnyApp-AnyPlatform-MFA
 
-This policy requires MFA for certain admin roles when they access the any cloud app. 
+This policy requires MFA for certain admin roles when they access the any cloud app. This one is designed on the principle that admin roles are only assigned to admin accounts!
 
 ![CA101](./Images/CA101.png)
 
@@ -159,13 +182,19 @@ This policy sets a Sign-in frequency for certain admin roles to a maximum of 12 
 
 ![CA102](./Images/CA102.png)
 
+### CA103-Admins-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser
+
+This policy prevents having persistent browser sessions for admins from every device.
+
+![CA103](./Images/CA103.png)
+
 ### CA200-Internals-IdentityProtection-AnyApp-AnyPlatform-MFA
 
 This policy requires MFA for all internal identities, for all cloud applications, from any platform.
 
 
 > [!IMPORTANT]
-> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5_DEV is added as an example.
+> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5 is added as an example.
 
 ![CA200](./Images/CA200.png)
 
@@ -174,7 +203,7 @@ This policy requires MFA for all internal identities, for all cloud applications
 This policy blocks all internal users which have a **high risk** (sign-in and user risk) status, to all cloud apps, from all platforms.
 
 > [!IMPORTANT]
-> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5_DEV is added as an example.
+> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5 is added as an example.
 
 ![CA201](./Images/CA201.png)
 
@@ -183,7 +212,7 @@ This policy blocks all internal users which have a **high risk** (sign-in and us
 This policy sets a Sign-in frequency to a maximum of 12 hours for internals, to all cloud apps, using unmanaged Windows or MacOS devices.
 
 > [!IMPORTANT]
-> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5_DEV is added as an example.
+> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5 is added as an example.
 
 ![CA202](./Images/CA202.png)
 
@@ -192,7 +221,7 @@ This policy sets a Sign-in frequency to a maximum of 12 hours for internals, to 
 This policy requires MFA for internals when enrolling their devices in Intune.
 
 > [!IMPORTANT]
-> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5_DEV is added as an example.
+> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5 is added as an example.
 
 ![CA203](./Images/CA203.png)
 
@@ -204,7 +233,7 @@ This policy blocks unknown/unsupported device platforms for internals.
 > Currently only Windows, MacOS, Android and iOS are supported. If (for example) Linux or Windows Phone is allowed you need to modify the policy.
 
 > [!IMPORTANT]
-> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5_DEV is added as an example.
+> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5 is added as an example.
 
 ![CA204](./Images/CA204.png)
 
@@ -213,9 +242,36 @@ This policy blocks unknown/unsupported device platforms for internals.
 This policy requires internals to make use of a Windows device that is compliant or AADHJ (Azure AD Hybrid Joined / Entra ID Hybrid Joined) while accessing any cloud app.
 
 > [!IMPORTANT]
-> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5_DEV is added as an example.
+> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5 is added as an example.
 
 ![CA205](./Images/CA205.png)
+
+### CA206-Internals-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser
+
+This policy prevents having persistent browser sessions for internals from unmanaged devices. Managed and compliant devices are excluded from the policy.
+
+> [!IMPORTANT]
+> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5 is added as an example.
+
+![CA206](./Images/CA206.png)
+
+### CA207-Internals-AttackSurfaceReduction-SelectedApps-AnyPlatform-BLOCK
+
+This policy prevents internals from accessing specific apps. In this example i've blocked a random app. You should review the included and excluded apps. Excluding office 365 is not necessary if its not included. This is just an example. 
+
+> [!IMPORTANT]
+> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5 is added as an example.
+
+![CA207](./Images/CA207.png)
+
+### CA208-Internals-BaseProtection-AnyApp-MacOS-Compliant
+
+This policy requires MacOS devices to be compliant for internals.
+
+> [!IMPORTANT]
+> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5 is added as an example.
+
+![CA208](./Images/CA208.png)
 
 ### CA400-GuestUsers-IdentityProtection-AnyApp-AnyPlatform-MFA
 
@@ -237,6 +293,18 @@ This policy blocks access for guests to all cloud apps (except for those exclude
 This policy sets a Sign-in frequency to a maximum of 12 hours for guests, to all cloud apps, using any device.
 
 ![CA402](./Images/CA402.png)
+
+### CA403-Guests-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser
+
+This policy prevents guest from having persistent browser sessions.
+
+![CA403](./Images/CA403.png)
+
+### CA404-Guests-AttackSurfaceReduction-SelectedApps-AnyPlatform-BLOCK
+
+This policy prevents guests from accessing specific apps. In this example i've blocked a random app. You should review the included and excluded apps. Excluding office 365 is not necessary if its not included. This is just an example. 
+
+![CA404](./Images/CA404.png)
 
 ## Named locations
 
