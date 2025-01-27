@@ -33,6 +33,8 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
     - [CA101-Admins-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca101-admins-identityprotection-anyapp-anyplatform-mfa)
     - [CA102-Admins-IdentityProtection-AllApps-AnyPlatform-SigninFrequency](#ca102-admins-identityprotection-allapps-anyplatform-signinfrequency)
     - [CA103-Admins-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser](#ca103-admins-identityprotection-allapps-anyplatform-persistentbrowser)
+    - [CA104-Admins-IdentityProtection-AllApps-AnyPlatform-ContinuousAccessEvaluation](#ca104-Admins-IdentityProtection-AllApps-AnyPlatform-ContinuousAccessEvaluation)
+    - [CA105-Admins-IdentityProtection-AnyApp-AnyPlatform-PhishingResistantMFA](#ca105-Admins-IdentityProtection-AnyApp-AnyPlatform-PhishingResistantMFA)
     - [CA200-Internals-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca200-internals-identityprotection-anyapp-anyplatform-mfa)
     - [CA201-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRisk](#ca201-internals-identityprotection-anyapp-anyplatform-block-highrisk)
     - [CA202-Internals-IdentityProtection-AllApps-WindowsMacOS-SigninFrequency-UnmanagedDevices](#ca202-internals-identityprotection-allapps-windowsmacos-signinfrequency-unmanageddevices)
@@ -42,6 +44,7 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
     - [CA206-Internals-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser](#ca206-internals-identityprotection-allapps-anyplatform-persistentbrowser)
     - [CA207-Internals-AttackSurfaceReduction-SelectedApps-AnyPlatform-BLOCK](#ca207-internals-attacksurfacereduction-selectedapps-anyplatform-block)
     - [CA208-Internals-BaseProtection-AnyApp-MacOS-Compliant](#ca208-internals-baseprotection-anyapp-macos-compliant)
+    - [CA209-Internals-IdentityProtection-AllApps-AnyPlatform-ContinuousAccessEvaluation](#ca209-Internals-IdentityProtection-AllApps-AnyPlatform-ContinuousAccessEvaluation)
     - [CA400-GuestUsers-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca400-guestusers-identityprotection-anyapp-anyplatform-mfa)
     - [CA401-GuestUsers-AttackSurfaceReduction-AllApps-AnyPlatform-BlockNonGuestAppAccess](#ca401-guestusers-attacksurfacereduction-allapps-anyplatform-blocknonguestappaccess)
     - [CA402-GuestUsers-IdentityProtection-AllApps-AnyPlatform-SigninFrequency](#ca402-guestusers-identityprotection-allapps-anyplatform-signinfrequency)
@@ -69,6 +72,7 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 | -------- | -------- |
 | 2024.4.1 | Released 10-04-2024 |
 | 2024.6.1 | Released 26-06-2024 |
+| 2025.2.1 | Released 01-02-2025 |
 
 
 ## Changelog
@@ -83,6 +87,10 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 * CA100: Added a few Admin roles to require MFA.
 * CA101: Added a few Admin roles to require MFA.
 
+### 2025.2.1
+* CA104: Added Continuous Access Evaluation for admins
+* CA105: Added Phishing Resistant MFA for admins
+* CA209: Added Continuous Access Evaluation for internals
 
 ## Persona's
 
@@ -188,6 +196,18 @@ This policy prevents having persistent browser sessions for admins from every de
 
 ![CA103](./Images/CA103.png)
 
+### CA104-Admins-IdentityProtection-AllApps-AnyPlatform-ContinuousAccessEvaluation
+
+This policy allows Microsoft Entra ID to re-evaluate a user's access to resources in near real-time, rather than waiting for the typical token expiration time (which could be up to an hour). Read the Microsoft documentation here: https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-continuous-access-evaluation#conditional-access-policy-evaluation-preview
+
+![CA104](./Images/CA104.png)
+
+### CA105-Admins-IdentityProtection-AnyApp-AnyPlatform-PhishingResistantMFA
+
+This policy requires Phishing Resistant MFA for admins. It does exclude Microsoft Graph Command Line Tools (cause i needed it) but you are free to remove it from your policy. It's slightly different from the Template policy. We also include Global Reader and Intune Administrators into the admin role selection.
+
+![CA105](./Images/CA105.png)
+
 ### CA200-Internals-IdentityProtection-AnyApp-AnyPlatform-MFA
 
 This policy requires MFA for all internal identities, for all cloud applications, from any platform.
@@ -272,6 +292,15 @@ This policy requires MacOS devices to be compliant for internals.
 > Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5 is added as an example.
 
 ![CA208](./Images/CA208.png)
+
+### CA209-Internals-IdentityProtection-AllApps-AnyPlatform-ContinuousAccessEvaluation
+
+This policy allows Microsoft Entra ID to re-evaluate a user's access to resources in near real-time, rather than waiting for the typical token expiration time (which could be up to an hour). Read the Microsoft documentation here: https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-continuous-access-evaluation#conditional-access-policy-evaluation-preview.
+
+> [!IMPORTANT]
+> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5 is added as an example.
+
+![CA209](./Images/CA209.png)
 
 ### CA400-GuestUsers-IdentityProtection-AnyApp-AnyPlatform-MFA
 
