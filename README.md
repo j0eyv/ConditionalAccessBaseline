@@ -273,7 +273,7 @@ This policy prevents having persistent browser sessions for internals from unman
 > [!IMPORTANT]
 > Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5 is added as an example.
 
-![CA206](./Images/CA206.png)
+![CA206](./Images/CA206a.png)
 
 ### CA207-Internals-AttackSurfaceReduction-SelectedApps-AnyPlatform-BLOCK
 
