@@ -103,7 +103,7 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 
 ### 2025.2.3
 * CA201: Policy contained Signin Risk and User Risk in a single policy. Now separated into CA201 and CA210
-* CA210: Separated (new) policy for Signin Risk)
+* CA210: Separated (new) policy for Signin Risk
 
 ## Persona's
 
