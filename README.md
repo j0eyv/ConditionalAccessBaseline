@@ -16,6 +16,9 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
   - [Version history](#version-history)
   - [Changelog](#changelog)
     - [2024.6.1](#202461)
+    - [2025.2.1](#202521)
+    - [2025.2.2](#202522)
+    - [2025.2.3](#202523)
   - [Persona's](#personas)
       - [Global](#global)
       - [Admins](#admins)
@@ -33,10 +36,10 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
     - [CA101-Admins-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca101-admins-identityprotection-anyapp-anyplatform-mfa)
     - [CA102-Admins-IdentityProtection-AllApps-AnyPlatform-SigninFrequency](#ca102-admins-identityprotection-allapps-anyplatform-signinfrequency)
     - [CA103-Admins-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser](#ca103-admins-identityprotection-allapps-anyplatform-persistentbrowser)
-    - [CA104-Admins-IdentityProtection-AllApps-AnyPlatform-ContinuousAccessEvaluation](#ca104-Admins-IdentityProtection-AllApps-AnyPlatform-ContinuousAccessEvaluation)
-    - [CA105-Admins-IdentityProtection-AnyApp-AnyPlatform-PhishingResistantMFA](#ca105-Admins-IdentityProtection-AnyApp-AnyPlatform-PhishingResistantMFA)
+    - [CA104-Admins-IdentityProtection-AllApps-AnyPlatform-ContinuousAccessEvaluation](#ca104-admins-identityprotection-allapps-anyplatform-continuousaccessevaluation)
+    - [CA105-Admins-IdentityProtection-AnyApp-AnyPlatform-PhishingResistantMFA](#ca105-admins-identityprotection-anyapp-anyplatform-phishingresistantmfa)
     - [CA200-Internals-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca200-internals-identityprotection-anyapp-anyplatform-mfa)
-    - [CA201-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRisk](#ca201-internals-identityprotection-anyapp-anyplatform-block-highrisk)
+    - [CA201-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRiskUser](#ca201-internals-identityprotection-anyapp-anyplatform-block-highriskuser)
     - [CA202-Internals-IdentityProtection-AllApps-WindowsMacOS-SigninFrequency-UnmanagedDevices](#ca202-internals-identityprotection-allapps-windowsmacos-signinfrequency-unmanageddevices)
     - [CA203-Internals-AppProtection-MicrosoftIntuneEnrollment-AnyPlatform-MFA](#ca203-internals-appprotection-microsoftintuneenrollment-anyplatform-mfa)
     - [CA204-Internals-AttackSurfaceReduction-AllApps-AnyPlatform-BlockUnknownPlatforms](#ca204-internals-attacksurfacereduction-allapps-anyplatform-blockunknownplatforms)
@@ -44,7 +47,8 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
     - [CA206-Internals-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser](#ca206-internals-identityprotection-allapps-anyplatform-persistentbrowser)
     - [CA207-Internals-AttackSurfaceReduction-SelectedApps-AnyPlatform-BLOCK](#ca207-internals-attacksurfacereduction-selectedapps-anyplatform-block)
     - [CA208-Internals-BaseProtection-AnyApp-MacOS-Compliant](#ca208-internals-baseprotection-anyapp-macos-compliant)
-    - [CA209-Internals-IdentityProtection-AllApps-AnyPlatform-ContinuousAccessEvaluation](#ca209-Internals-IdentityProtection-AllApps-AnyPlatform-ContinuousAccessEvaluation)
+    - [CA209-Internals-IdentityProtection-AllApps-AnyPlatform-ContinuousAccessEvaluation](#ca209-internals-identityprotection-allapps-anyplatform-continuousaccessevaluation)
+    - [CA210-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRiskSignIn](#ca210-internals-identityprotection-anyapp-anyplatform-block-highrisksignin)
     - [CA400-GuestUsers-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca400-guestusers-identityprotection-anyapp-anyplatform-mfa)
     - [CA401-GuestUsers-AttackSurfaceReduction-AllApps-AnyPlatform-BlockNonGuestAppAccess](#ca401-guestusers-attacksurfacereduction-allapps-anyplatform-blocknonguestappaccess)
     - [CA402-GuestUsers-IdentityProtection-AllApps-AnyPlatform-SigninFrequency](#ca402-guestusers-identityprotection-allapps-anyplatform-signinfrequency)
@@ -73,6 +77,8 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 | 2024.4.1 | Released 10-04-2024 |
 | 2024.6.1 | Released 26-06-2024 |
 | 2025.2.1 | Released 01-02-2025 |
+| 2025.2.2 | Released 06-02-2025 |
+| 2025.2.3 | Released 13-02-2025 |
 
 
 ## Changelog
@@ -91,6 +97,13 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 * CA104: Added Continuous Access Evaluation for admins
 * CA105: Added Phishing Resistant MFA for admins
 * CA209: Added Continuous Access Evaluation for internals
+
+### 2025.2.2
+* CA206: Wrong exclusion group was assigned. Has been fixed.
+
+### 2025.2.3
+* CA201: Policy contained Signin Risk and User Risk in a single policy. Now separated into CA201 and CA210
+* CA210: Separated (new) policy for Signin Risk)
 
 ## Persona's
 
@@ -218,14 +231,14 @@ This policy requires MFA for all internal identities, for all cloud applications
 
 ![CA200](./Images/CA200.png)
 
-### CA201-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRisk
+### CA201-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRiskUser
 
-This policy blocks all internal users which have a **high risk** (sign-in and user risk) status, to all cloud apps, from all platforms.
+This policy blocks all internal users which have a **high risk** (user risk) status, to all cloud apps, from all platforms.
 
 > [!IMPORTANT]
 > Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5 is added as an example.
 
-![CA201](./Images/CA201.png)
+![CA201](./Images/CA201.1.png)
 
 ### CA202-Internals-IdentityProtection-AllApps-WindowsMacOS-SigninFrequency-UnmanagedDevices
 
@@ -301,6 +314,15 @@ This policy allows Microsoft Entra ID to re-evaluate a user's access to resource
 > Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5 is added as an example.
 
 ![CA209](./Images/CA209.png)
+
+### CA210-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRiskSignIn
+
+This policy blocks all internal users which have a **high risk** (Sign-in risk) status, to all cloud apps, from all platforms.
+
+> [!IMPORTANT]
+> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5 is added as an example.
+
+![CA210](./Images/CA210.png)
 
 ### CA400-GuestUsers-IdentityProtection-AnyApp-AnyPlatform-MFA
 
