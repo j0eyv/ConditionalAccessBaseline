@@ -201,6 +201,9 @@ This policy requires MFA for certain admin roles when they access the any cloud 
 
 This policy sets a Sign-in frequency for certain admin roles to a maximum of 12 hours. Admins need to re-authenticate of logon after 12 hours.
 
+> [!NOTE]
+> Some organizations assign key roles to their primary identity (which is not ideal), leading to frequent forced sign-ins. It's recommended to assign additional roles based on your personal requirements instead.
+
 ![CA102](./Images/CA102.png)
 
 ### CA103-Admins-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser
