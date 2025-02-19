@@ -337,6 +337,9 @@ This policy blocks access for guests to all cloud apps (except for those exclude
 > [!IMPORTANT]
 > Make sure to exclude additional cloud apps if any guest needs access to these apps.
 
+> [!NOTE]
+> If you're not working with an MSP (Microsoft Partner) that requires access to your tenant, you can also block "Service Provider Users."
+
 ![CA401](./Images/CA401.png)
 
 ### CA402-GuestUsers-IdentityProtection-AllApps-AnyPlatform-SigninFrequency
