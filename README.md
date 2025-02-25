@@ -13,6 +13,7 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 - [Conditional access Baseline](#conditional-access-baseline)
 - [Table of Contents](#table-of-contents)
   - [Resources](#resources)
+  - [Roadmap](#roadmap)
   - [Version history](#version-history)
   - [Changelog](#changelog)
     - [2024.6.1](#202461)
@@ -70,6 +71,9 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 
 ➡ idPowerToys for CA documentation: https://idpowertoys.merill.net/
 
+
+## Roadmap
+* Q2 2025:Service accounts persona and belonging policies will be added.
 
 ## Version history
 | Version nr | Release date |
