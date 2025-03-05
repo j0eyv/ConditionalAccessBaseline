@@ -73,7 +73,8 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 
 
 ## Roadmap
-* Q2 2025:Service accounts persona and belonging policies will be added.
+* Q2 2025: Service accounts persona and belonging policies will be added.
+* Q2 2025: Adding protected actions (Prevent Permanently Deleting Objects) *investigating added value*.
 
 ## Version history
 | Version nr | Release date |
