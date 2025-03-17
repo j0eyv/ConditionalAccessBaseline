@@ -57,6 +57,7 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
     - [CA404-Guests-AttackSurfaceReduction-SelectedApps-AnyPlatform-BLOCK](#ca404-guests-attacksurfacereduction-selectedapps-anyplatform-block)
   - [Named locations](#named-locations)
   - [Considerations](#considerations)
+  - [Troubleshooting](#troubleshooting)
   - [Importing the baseline](#importing-the-baseline)
     - [Setup IntuneManagement](#setup-intunemanagement)
     - [Import the configuration](#import-the-configuration)
@@ -378,7 +379,13 @@ This policy prevents guests from accessing specific apps. In this example i've b
 ## Considerations
 1. You might want to remove the "CA - BreakGlassAccounts - Exclude" group from Admin MFA policies (CA101, CA102) if they use MFA and/or only exclude 1 single BreakGlass account.
 
-2. You might want to lower the risk state in CA201 and/or separate User-Risk and Sign-in Risk in 2 single policies.
+## Troubleshooting
+
+1. If you encounter an error when importing policies CA203/CA205/CA208, it may be due to the absence of the "Microsoft Intune Enrollment" app in your tenant. To resolve this, recreate it using PowerShell with the following commands:
+```
+  Connect-AzureAD -AccountId admin@organization.onmicrosoft.com
+  New-AzureADServicePrincipal -AppId d4ebce55-015a-49b5-a083-c84d1797ae8c
+```
 
 ## Importing the baseline
 
