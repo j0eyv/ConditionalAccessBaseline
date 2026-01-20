@@ -13,6 +13,7 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 - [Conditional access Baseline](#conditional-access-baseline)
 - [Table of Contents](#table-of-contents)
   - [Resources](#resources)
+  - [Prerequisites](#prerequisites)
   - [Roadmap](#roadmap)
   - [Version history](#version-history)
   - [Changelog](#changelog)
@@ -63,6 +64,8 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
     - [Import the configuration](#import-the-configuration)
 
 
+
+
 ## Resources
 ➡ Microsoft Learn: https://learn.microsoft.com/en-us/azure/architecture/guide/security/conditional-access-framework
 
@@ -72,11 +75,12 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 
 ➡ idPowerToys for CA documentation: https://idpowertoys.merill.net/
 
+## Prerequisites
+* Security Defaults must be disabled before importing Conditional Access policies.
+* Make sure **Microsoft Intune Enrollment** (App id: d4ebce55-015a-49b5-a083-c84d1797ae8c) app exists in your tenant. Otherwise, create manually by using `New-MgServicePrincipal -AppId d4ebce55-015a-49b5-a083-c84d1797ae8c`
 
 ## Roadmap
-* Q2 2025: Service accounts persona and belonging policies will be added.
-* Q2/Q3 2025: Adding protected actions (Prevent Permanently Deleting Objects) *investigating added value*.
-* Q2/Q3 2025: Adding "Register MFA only from trusted locations" for Admins and Internals.
+* Feedback and enhancement requests can be provided by opening a repository issue.
 
 ## Version history
 | Version nr | Release date |
@@ -223,6 +227,9 @@ This policy prevents having persistent browser sessions for admins from every de
 
 This policy allows Microsoft Entra ID to re-evaluate a user's access to resources in near real-time, rather than waiting for the typical token expiration time (which could be up to an hour). Read the Microsoft documentation here: https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-continuous-access-evaluation#conditional-access-policy-evaluation-preview
 
+> [!IMPORTANT]
+> This CA rule cannot be created in Report-only mode. Supported modes are **ON** or **OFF**.
+
 ![CA104](./Images/CA104.png)
 
 ### CA105-Admins-IdentityProtection-AnyApp-AnyPlatform-PhishingResistantMFA
@@ -326,6 +333,9 @@ This policy allows Microsoft Entra ID to re-evaluate a user's access to resource
 > [!IMPORTANT]
 > Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5 is added as an example.
 
+> [!IMPORTANT]
+> This CA rule cannot be created in Report-only mode. Supported modes are **ON** or **OFF**.
+
 ![CA209](./Images/CA209.png)
 
 ### CA210-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRiskSignIn
@@ -386,9 +396,11 @@ This policy prevents guests from accessing specific apps. In this example i've b
 
 1. If you encounter an error when importing policies CA203/CA205/CA208, it may be due to the absence of the "Microsoft Intune Enrollment" app in your tenant. To resolve this, recreate it using PowerShell with the following commands:
 ```
-  Connect-AzureAD -AccountId admin@organization.onmicrosoft.com
-  New-AzureADServicePrincipal -AppId d4ebce55-015a-49b5-a083-c84d1797ae8c
+  Connect-MgGraph
+  New-MgServicePrincipal -AppId d4ebce55-015a-49b5-a083-c84d1797ae8c
 ```
+
+2. Error: Policy contains invalid applications: ServicePrincipalNotFound. Some ServicePrincipals might be missing in your tenant. You can manually create these by using `New-MgServicePrincipal -AppId *****-*****-******` |
 
 ## Importing the baseline
 
