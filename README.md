@@ -266,6 +266,9 @@ This policy requires MFA for internals when enrolling their devices in Intune.
 > [!IMPORTANT]
 > Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5 is added as an example.
 
+> [!IMPORTANT]
+> Autopilot Device Preparation (v2) enrollment can fail under this policy, resulting in devices getting stuck during OOBE. This happens because the automated enrollment process is unable to fulfill the MFA requirement. To avoid this issue, add Autopilot Device Preparation users to the exclusion group for this policy.
+
 ![CA203](./Images/CA203.png)
 
 ### CA204-Internals-AttackSurfaceReduction-AllApps-AnyPlatform-BlockUnknownPlatforms
