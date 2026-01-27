@@ -39,7 +39,7 @@
                                                                     ],
                                             "excludeApplications@odata.type":  "#Collection(String)",
                                             "excludeApplications":  [
-                                                                        "372140e0-b3b7-4226-8ef9-d57986796201"
+                                                                        
                                                                     ],
                                             "includeUserActions@odata.type":  "#Collection(String)",
                                             "includeUserActions":  [
