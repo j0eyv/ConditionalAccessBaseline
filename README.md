@@ -94,7 +94,7 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 | 2025.2.1 | Released 01-02-2025 |
 | 2025.2.2 | Released 06-02-2025 |
 | 2025.2.3 | Released 13-02-2025 |
-| 2026.2.1 | Released 13-02-2025 |
+| 2026.2.1 | Released 13-02-2026 |
 
 
 ## Changelog
