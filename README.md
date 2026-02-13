@@ -21,18 +21,20 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
     - [2025.2.1](#202521)
     - [2025.2.2](#202522)
     - [2025.2.3](#202523)
+    - [2026.2.1](#202621)
   - [Persona's](#personas)
       - [Global](#global)
       - [Admins](#admins)
       - [Internals](#internals)
       - [Guests](#guests)
+      - [Agents](#agents)
   - [Conditional access policies](#conditional-access-policies)
     - [CA000-Global-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca000-global-identityprotection-anyapp-anyplatform-mfa)
     - [CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryWhitelist](#ca001-global-attacksurfacereduction-anyapp-anyplatform-block-countrywhitelist)
     - [CA002-Global-IdentityProtection-AnyApp-AnyPlatform-Block-LegacyAuthentication](#ca002-global-identityprotection-anyapp-anyplatform-block-legacyauthentication)
     - [CA003-Global-BaseProtection-RegisterOrJoin-AnyPlatform-MFA](#ca003-global-baseprotection-registerorjoin-anyplatform-mfa)
     - [CA004-Global-IdentityProtection-AnyApp-AnyPlatform-AuthenticationFlows](#ca004-global-identityprotection-anyapp-anyplatform-authenticationflows)
-    - [CA005-Global-DataProtection-Office365-AnyPlatform-Unmanaged-AppEnforcedRestrictions-BlockDownload](#ca005-global-dataprotection-office365-anyplatform-unmanaged-appenforcedrestrictions-blockdownload)
+    - [CA005-Global-DataProtection-Office365-AnyPlatform-Unmanaged-RequireAppProtection](#ca005-global-dataprotection-office365-anyplatform-unmanaged-requireappprotection)
     - [CA006-Global-DataProtection-Office365-iOSenAndroid-RequireAppProtection](#ca006-global-dataprotection-office365-iosenandroid-requireappprotection)
     - [CA100-Admins-IdentityProtection-AdminPortals-AnyPlatform-MFA](#ca100-admins-identityprotection-adminportals-anyplatform-mfa)
     - [CA101-Admins-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca101-admins-identityprotection-anyapp-anyplatform-mfa)
@@ -50,12 +52,14 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
     - [CA207-Internals-AttackSurfaceReduction-SelectedApps-AnyPlatform-BLOCK](#ca207-internals-attacksurfacereduction-selectedapps-anyplatform-block)
     - [CA208-Internals-BaseProtection-AnyApp-MacOS-Compliant](#ca208-internals-baseprotection-anyapp-macos-compliant)
     - [CA209-Internals-IdentityProtection-AllApps-AnyPlatform-ContinuousAccessEvaluation](#ca209-internals-identityprotection-allapps-anyplatform-continuousaccessevaluation)
-    - [CA210-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRiskSignIn](#ca210-internals-identityprotection-anyapp-anyplatform-block-highrisksignin)
+    - [CA300-ServiceAccounts-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca300-serviceaccounts-identityprotection-anyapp-anyplatform-mfa)
+    - [CA301-ServiceAccounts-AttackSurfaceReduction-AllApps-AnyPlatform-BlockUntrustedLocations](#ca301-serviceaccounts-attacksurfacereduction-allapps-anyplatform-blockuntrustedlocations)
     - [CA400-GuestUsers-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca400-guestusers-identityprotection-anyapp-anyplatform-mfa)
     - [CA401-GuestUsers-AttackSurfaceReduction-AllApps-AnyPlatform-BlockNonGuestAppAccess](#ca401-guestusers-attacksurfacereduction-allapps-anyplatform-blocknonguestappaccess)
     - [CA402-GuestUsers-IdentityProtection-AllApps-AnyPlatform-SigninFrequency](#ca402-guestusers-identityprotection-allapps-anyplatform-signinfrequency)
     - [CA403-Guests-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser](#ca403-guests-identityprotection-allapps-anyplatform-persistentbrowser)
     - [CA404-Guests-AttackSurfaceReduction-SelectedApps-AnyPlatform-BLOCK](#ca404-guests-attacksurfacereduction-selectedapps-anyplatform-block)
+    - [CA501-Agents-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRiskAgent](#ca501-agents-identityprotection-anyapp-anyplatform-block-highriskagent)
   - [Named locations](#named-locations)
   - [Considerations](#considerations)
   - [Troubleshooting](#troubleshooting)
@@ -90,6 +94,7 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 | 2025.2.1 | Released 01-02-2025 |
 | 2025.2.2 | Released 06-02-2025 |
 | 2025.2.3 | Released 13-02-2025 |
+| 2026.2.1 | Released 13-02-2025 |
 
 
 ## Changelog
@@ -115,6 +120,11 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 ### 2025.2.3
 * CA201: Policy contained Signin Risk and User Risk in a single policy. Now separated into CA201 and CA210
 * CA210: Separated (new) policy for Signin Risk
+
+### 2026.2.1
+* CA501: Template policy for High Risk Agents adopted into the framework.
+* CA005: Modified policy from **Require approved client app** to **RequireAppProtection** as this is being retired per March 2026.
+  
 
 ## Persona's
 
@@ -144,6 +154,9 @@ standard end-user role.
 #### Guests
 Guests holds all users who have an Azure AD guest account 
 that has been invited into the customer tenant
+
+#### Agents
+Agents covers all agent related resources which can be managed through Conditional Access
 
 
 ## Conditional access policies
@@ -184,9 +197,9 @@ This policy prevents all users from transfering authentication flows from PC to 
 
 ![CA004](./Images/CA004.png)
 
-### CA005-Global-DataProtection-Office365-AnyPlatform-Unmanaged-AppEnforcedRestrictions-BlockDownload
+### CA005-Global-DataProtection-Office365-AnyPlatform-Unmanaged-RequireAppProtection
 
-This policy prevents all users from downloading, printing or syncing Office 365 data from an unmanaged device. It requires App Enforce Restrictions.
+This policyrequires App Protection Policies on unmanaged devices.
 
 ![CA005](./Images/CA005.png)
 
@@ -338,14 +351,23 @@ This policy allows Microsoft Entra ID to re-evaluate a user's access to resource
 
 ![CA209](./Images/CA209.png)
 
-### CA210-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRiskSignIn
+### CA300-ServiceAccounts-IdentityProtection-AnyApp-AnyPlatform-MFA
 
-This policy blocks all internal users which have a **high risk** (Sign-in risk) status, to all cloud apps, from all platforms.
+This policy requires ServiceAccounts to use MFA, from any platform when accessing any cloud app.
 
 > [!IMPORTANT]
 > Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5 is added as an example.
 
-![CA210](./Images/CA210.png)
+![CA300](./Images/CA300.png)
+
+### CA301-ServiceAccounts-AttackSurfaceReduction-AllApps-AnyPlatform-BlockUntrustedLocations
+
+This policy prevents service accounts from logging in from untrusted countries.
+
+> [!IMPORTANT]
+> Verify the Named Location which is part of this policy. Add or Remove countries from the imported Named Location.
+
+![CA301](./Images/CA301.png)
 
 ### CA400-GuestUsers-IdentityProtection-AnyApp-AnyPlatform-MFA
 
@@ -383,11 +405,18 @@ This policy prevents guests from accessing specific apps. In this example i've b
 
 ![CA404](./Images/CA404.png)
 
+### CA501-Agents-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRiskAgent
+
+This policy blocks agent identities with a high risk level from accessing resources in your tenant.
+
+![CA501](./Images/CA501.png)
+
 ## Named locations
 
 | Name | Location type | Assigned to policy |
 | -------- | -------- | -------- |
 | ALLOWED COUNTRIES | Countries (IP) | CA001-Global-AttackSurfaceReduction-AnyApp-AnyPlatform-BLOCK-CountryWhitelist |
+| ALLOWED COUNTRIES - SERVICE ACCOUNTS | Countries (IP) | CA301-ServiceAccounts-AttackSurfaceReduction-AllApps-AnyPlatform-BlockUntr|
 
 ## Considerations
 1. You might want to remove the "CA - BreakGlassAccounts - Exclude" group from Admin MFA policies (CA101, CA102) if they use MFA and/or only exclude 1 single BreakGlass account.
