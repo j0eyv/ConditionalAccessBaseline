@@ -205,6 +205,8 @@ This policyrequires App Protection Policies on unmanaged devices.
 
 ### CA006-Global-DataProtection-Office365-iOSenAndroid-RequireAppProtection
 
+**Note:** This policy will be modified or removed soon as there is some overlap with CA005.
+
 This policy requires App Protection policies for all users when accessing Office 365 data from iOS or Android devices. Admin roles are excluded to make sure the Microsoft 365 App's on the iOS and Android devices do work. This one is designed on the principle that admin roles are only assigned to admin accounts!
 
 ![CA006](./Images/CA006.png)
