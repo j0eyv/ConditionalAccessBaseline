@@ -52,6 +52,7 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
     - [CA207-Internals-AttackSurfaceReduction-SelectedApps-AnyPlatform-BLOCK](#ca207-internals-attacksurfacereduction-selectedapps-anyplatform-block)
     - [CA208-Internals-BaseProtection-AnyApp-MacOS-Compliant](#ca208-internals-baseprotection-anyapp-macos-compliant)
     - [CA209-Internals-IdentityProtection-AllApps-AnyPlatform-ContinuousAccessEvaluation](#ca209-internals-identityprotection-allapps-anyplatform-continuousaccessevaluation)
+    - [CA210-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRiskSignIn](#ca210-internals-identityprotection-anyapp-anyplatform-block-highrisksignin)
     - [CA300-ServiceAccounts-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca300-serviceaccounts-identityprotection-anyapp-anyplatform-mfa)
     - [CA301-ServiceAccounts-AttackSurfaceReduction-AllApps-AnyPlatform-BlockUntrustedLocations](#ca301-serviceaccounts-attacksurfacereduction-allapps-anyplatform-blockuntrustedlocations)
     - [CA400-GuestUsers-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca400-guestusers-identityprotection-anyapp-anyplatform-mfa)
@@ -270,7 +271,7 @@ This policy blocks all internal users which have a **high risk** (user risk) sta
 > [!IMPORTANT]
 > Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5 is added as an example.
 
-![CA201](./Images/CA201.1.png)
+![CA201](./Images/CA201.png)
 
 ### CA202-Internals-IdentityProtection-AllApps-WindowsMacOS-SigninFrequency-UnmanagedDevices
 
@@ -321,7 +322,7 @@ This policy prevents having persistent browser sessions for internals from unman
 > [!IMPORTANT]
 > Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5 is added as an example.
 
-![CA206](./Images/CA206-new.png)
+![CA206](./Images/CA206.png)
 
 ### CA207-Internals-AttackSurfaceReduction-SelectedApps-AnyPlatform-BLOCK
 
@@ -352,6 +353,15 @@ This policy allows Microsoft Entra ID to re-evaluate a user's access to resource
 > This CA rule cannot be created in Report-only mode. Supported modes are **ON** or **OFF**.
 
 ![CA209](./Images/CA209.png)
+
+### CA210-Internals-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRiskSignIn
+
+This policy blocks all internal users which have a **high risk** (signin risk) status, to all cloud apps, from all platforms.
+
+> [!IMPORTANT]
+> Verify the included group(s) and/or add your custom groups which have all internals in it. APP_Microsoft365_E5 is added as an example.
+
+![CA210](./Images/CA210.png)
 
 ### CA300-ServiceAccounts-IdentityProtection-AnyApp-AnyPlatform-MFA
 
