@@ -137,6 +137,7 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 * CA502: New Conditional Access policy introduced to block all agent identities, except those explicitly excluded.
 * CA503: New Conditional Access policy introduced to require agent user identities to access resources only from compliant devices.
 * CA504: New Conditional Access policy introduced to block all risky agent user identities with a medium or high risk level.
+* CA505: New Conditional Access policy introduced to block agent user sessions from all locations except Global Secure Access Network.
     
 
 ## Persona's
