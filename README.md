@@ -22,6 +22,7 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
     - [2025.2.2](#202522)
     - [2025.2.3](#202523)
     - [2026.2.1](#202621)
+    - [2026.6.1](#202661)
   - [Persona's](#personas)
       - [Global](#global)
       - [Admins](#admins)
@@ -61,6 +62,10 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
     - [CA403-Guests-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser](#ca403-guests-identityprotection-allapps-anyplatform-persistentbrowser)
     - [CA404-Guests-AttackSurfaceReduction-SelectedApps-AnyPlatform-BLOCK](#ca404-guests-attacksurfacereduction-selectedapps-anyplatform-block)
     - [CA501-Agents-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRiskAgent](#ca501-agents-identityprotection-anyapp-anyplatform-block-highriskagent)
+    - [CA502-Agents-AttackSurfaceReduction-AllAgentIdentities-AllAgentResources-BLOCK](#ca502-agents-attacksurfacereduction-allagentidentities-allagentresources-block)
+    - [CA503-Agents-BaseProtection-AllAgentUsers-AllResources-RequireCompliantDevice](#ca503-agents-baseprotection-allagentusers-allresources-requirecompliantdevice)
+    - [CA504-Agents-IdentityProtection-AllAgentUsers-AllResources-BlockRiskyAgents](#ca504-agents-identityprotection-allagentusers-allresources-blockriskyagents)
+    - [CA505-Agents-AttackSurfaceReduction-AllAgentUsers-AllResources-RequireCompliantNetWork](#ca505-agents-attacksurfacereduction-allagentusers-allresources-requirecompliantnetwork)
   - [Named locations](#named-locations)
   - [Considerations](#considerations)
   - [Troubleshooting](#troubleshooting)
@@ -96,6 +101,7 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 | 2025.2.2 | Released 06-02-2025 |
 | 2025.2.3 | Released 13-02-2025 |
 | 2026.2.1 | Released 13-02-2026 |
+| 2026.6.1 | Released 12-06-2026 |
 
 
 ## Changelog
@@ -125,7 +131,13 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
 ### 2026.2.1
 * CA501: Template policy for High Risk Agents adopted into the framework.
 * CA005: Modified policy from **Require approved client app** to **RequireAppProtection** as this is being retired per March 2026.
-  
+
+### 2026.6.1
+* CA100/CA105: Admin persona's have been updated to include additional administrator roles: Agent ID Administrator, Agent Registry Administrator, AI Administrator, Entra Backup admin, Windows 365 Administrator, Microsoft 365 Backup Admin, Dragon Admin
+* CA502: New Conditional Access policy introduced to block all agent identities, except those explicitly excluded.
+* CA503: New Conditional Access policy introduced to require agent user identities to access resources only from compliant devices.
+* CA504: New Conditional Access policy introduced to block all risky agent user identities with a medium or high risk level.
+    
 
 ## Persona's
 
@@ -158,6 +170,8 @@ that has been invited into the customer tenant
 
 #### Agents
 Agents covers all agent related resources which can be managed through Conditional Access
+
+**Note:** Conditional Access for agents requires Microsoft Entra ID P1 or P2 and a Microsoft Agent 365 license for each user. Enforcement of Agent 365 licensing is coming soon.
 
 
 ## Conditional access policies
@@ -214,19 +228,19 @@ This policy requires App Protection policies for all users when accessing Office
 
 ### CA100-Admins-IdentityProtection-AdminPortals-AnyPlatform-MFA
 
-This policy requires MFA for certain admin roles when they access the access Admin Portals. This one is designed on the principle that admin roles are only assigned to admin accounts!
+This policy requires MFA for certain admin roles when they access the access Admin Portals. This one is designed on the principle that admin roles are only assigned to admin accounts! **Note:** Review the chosen Admin Roles. It could be advantageous to include additional admin roles according to your specific tenant, usage, or security requirements.
 
 ![CA100](./Images/CA100.png)
 
 ### CA101-Admins-IdentityProtection-AnyApp-AnyPlatform-MFA
 
-This policy requires MFA for certain admin roles when they access the any cloud app. This one is designed on the principle that admin roles are only assigned to admin accounts!
+This policy requires MFA for certain admin roles when they access the any cloud app. This one is designed on the principle that admin roles are only assigned to admin accounts! **Note:** Review the chosen Admin Roles. It could be advantageous to include additional admin roles according to your specific tenant, usage, or security requirements.
 
 ![CA101](./Images/CA101.png)
 
 ### CA102-Admins-IdentityProtection-AllApps-AnyPlatform-SigninFrequency
 
-This policy sets a Sign-in frequency for certain admin roles to a maximum of 12 hours. Admins need to re-authenticate of logon after 12 hours.
+This policy sets a Sign-in frequency for certain admin roles to a maximum of 12 hours. Admins need to re-authenticate of logon after 12 hours. **Note:** Review the chosen Admin Roles. It could be advantageous to include additional admin roles according to your specific tenant, usage, or security requirements.
 
 > [!NOTE]
 > Some organizations assign key roles to their primary identity (which is not ideal), leading to frequent forced sign-ins. It's recommended to assign additional roles based on your personal requirements instead.
@@ -235,13 +249,13 @@ This policy sets a Sign-in frequency for certain admin roles to a maximum of 12 
 
 ### CA103-Admins-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser
 
-This policy prevents having persistent browser sessions for admins from every device.
+This policy prevents having persistent browser sessions for admins from every device. **Note:** Review the chosen Admin Roles. It could be advantageous to include additional admin roles according to your specific tenant, usage, or security requirements.
 
 ![CA103](./Images/CA103.png)
 
 ### CA104-Admins-IdentityProtection-AllApps-AnyPlatform-ContinuousAccessEvaluation
 
-This policy allows Microsoft Entra ID to re-evaluate a user's access to resources in near real-time, rather than waiting for the typical token expiration time (which could be up to an hour). Read the Microsoft documentation here: https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-continuous-access-evaluation#conditional-access-policy-evaluation-preview
+This policy allows Microsoft Entra ID to re-evaluate a user's access to resources in near real-time, rather than waiting for the typical token expiration time (which could be up to an hour). Read the Microsoft documentation here: https://learn.microsoft.com/en-us/entra/identity/conditional-access/concept-continuous-access-evaluation#conditional-access-policy-evaluation-preview. **Note:** Review the chosen Admin Roles. It could be advantageous to include additional admin roles according to your specific tenant, usage, or security requirements.
 
 > [!IMPORTANT]
 > This CA rule cannot be created in Report-only mode. Supported modes are **ON** or **OFF**.
@@ -250,7 +264,7 @@ This policy allows Microsoft Entra ID to re-evaluate a user's access to resource
 
 ### CA105-Admins-IdentityProtection-AnyApp-AnyPlatform-PhishingResistantMFA
 
-This policy requires Phishing Resistant MFA for admins. It does exclude Microsoft Graph Command Line Tools (cause i needed it) but you are free to remove it from your policy. It's slightly different from the Template policy. We also include Global Reader and Intune Administrators into the admin role selection.
+This policy requires Phishing Resistant MFA for admins. It does exclude Microsoft Graph Command Line Tools (cause i needed it) but you are free to remove it from your policy. It's slightly different from the Template policy. We also include Global Reader and Intune Administrators into the admin role selection. **Note:** Review the chosen Admin Roles. It could be advantageous to include additional admin roles according to your specific tenant, usage, or security requirements.
 
 ![CA105](./Images/CA105.png)
 
@@ -420,8 +434,31 @@ This policy prevents guests from accessing specific apps. In this example i've b
 ### CA501-Agents-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRiskAgent
 
 This policy blocks agent identities with a high risk level from accessing resources in your tenant.
+Learn more: https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-autonomous-agents?tabs=use-the-enhanced-object-picker#block-high-risk-agents-from-accessing-organizational-resources
 
 ![CA501](./Images/CA501.png)
+
+### CA502-Agents-AttackSurfaceReduction-AllAgentIdentities-AllAgentResources-BLOCK
+
+By default, this policy prevents all agent identities from being used. Only agents that have been specifically excluded (approved) are allowed to be used.
+Learn more: https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-autonomous-agents?tabs=use-the-enhanced-object-picker#create-conditional-access-policy-using-the-enhanced-object-picker
+
+
+### CA503-Agents-BaseProtection-AllAgentUsers-AllResources-RequireCompliantDevice
+
+Certain autonomous agents are computer-based. They function within a desktop environment to carry out tasks, much like a human user engaging with software. Therefore, it is necessary for the device to meet compliance standards as a security precaution.
+Learn more: https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-autonomous-agents?tabs=use-the-enhanced-object-picker#require-a-compliant-device-for-agents-user-accounts
+
+
+### CA504-Agents-IdentityProtection-AllAgentUsers-AllResources-BlockRiskyAgents
+
+This policy blocks autonomous agents operating as users when Microsoft Entra ID Protection detects medium or high risk.
+Learn more: https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-autonomous-agents?tabs=use-the-enhanced-object-picker#block-risky-agents-user-accounts
+
+### CA505-Agents-AttackSurfaceReduction-AllAgentUsers-AllResources-RequireCompliantNetWork
+
+This policy blocks agent user sessions from all locations except those compliant with the Global Secure Access network. Consider whether this is feasible in your environment.
+Learn more: https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-autonomous-agents?tabs=use-the-enhanced-object-picker#require-a-compliant-network-for-agents-user-accounts
 
 ## Named locations
 
