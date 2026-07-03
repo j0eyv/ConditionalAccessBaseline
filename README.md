@@ -35,7 +35,7 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
     - [CA002-Global-IdentityProtection-AnyApp-AnyPlatform-Block-LegacyAuthentication](#ca002-global-identityprotection-anyapp-anyplatform-block-legacyauthentication)
     - [CA003-Global-BaseProtection-RegisterOrJoin-AnyPlatform-MFA](#ca003-global-baseprotection-registerorjoin-anyplatform-mfa)
     - [CA004-Global-IdentityProtection-AnyApp-AnyPlatform-AuthenticationFlows](#ca004-global-identityprotection-anyapp-anyplatform-authenticationflows)
-    - [CA005-Global-DataProtection-Office365-AnyPlatform-Unmanaged-RequireAppProtection](#ca005-global-dataprotection-office365-anyplatform-unmanaged-requireappprotection)
+    - [CA005-Global-DataProtection-Office365-iOSenAndroid-ClientApps-Unmanaged-AppEnforcedRestrictions](#ca005-global-dataprotection-office365-iosenandroid-clientapps-unmanaged-appenforcedrestrictions)
     - [CA006-Global-DataProtection-Office365-iOSenAndroid-RequireAppProtection](#ca006-global-dataprotection-office365-iosenandroid-requireappprotection)
     - [CA100-Admins-IdentityProtection-AdminPortals-AnyPlatform-MFA](#ca100-admins-identityprotection-adminportals-anyplatform-mfa)
     - [CA101-Admins-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca101-admins-identityprotection-anyapp-anyplatform-mfa)
@@ -213,9 +213,9 @@ This policy prevents all users from transfering authentication flows from PC to 
 
 ![CA004](./Images/CA004.png)
 
-### CA005-Global-DataProtection-Office365-AnyPlatform-Unmanaged-RequireAppProtection
+### CA005-Global-DataProtection-Office365-iOSenAndroid-ClientApps-Unmanaged-AppEnforcedRestrictions
 
-This policyrequires App Protection Policies on unmanaged devices.
+This policyrequires App Enforced Restrictions on unmanaged devices.
 
 ![CA005](./Images/CA005.png)
 
