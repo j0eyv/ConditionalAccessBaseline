@@ -5,7 +5,7 @@
     "@odata.editLink":  "identity/conditionalAccess/policies(\u00275ec953b4-0e21-423a-a45d-f3762453c945\u0027)",
     "id":  "5ec953b4-0e21-423a-a45d-f3762453c945",
     "templateId":  null,
-    "displayName":  "CA007-Global-DataProtection-Office365-AnyPlatform-Browser-Unmanaged-AppEnforceRestrictions",
+    "displayName":  "CA006-Global-DataProtection-Office365-AnyPlatform-Browser-Unmanaged-AppEnforceRestrictions",
     "createdDateTime":  null,
     "modifiedDateTime@odata.type":  "#DateTimeOffset",
     "modifiedDateTime":  "2026-02-15T15:36:51.9333541Z",
