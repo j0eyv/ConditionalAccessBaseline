@@ -70,8 +70,10 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
   - [Considerations](#considerations)
   - [Troubleshooting](#troubleshooting)
   - [Importing the baseline](#importing-the-baseline)
-    - [Setup IntuneManagement](#setup-intunemanagement)
-    - [Import the configuration](#import-the-configuration)
+    - [Option 1 - ConditionalAccessBaseline Importer (Recommended)](#option-1---conditionalaccessbaseline-importer-recommended)
+    - [Option 2 - IntuneManagementTool](#option-2---intunemanagementtool)
+      - [Setup IntuneManagement](#setup-intunemanagement)
+      - [Import the configuration](#import-the-configuration)
 
 
 
@@ -485,6 +487,22 @@ Learn more: https://learn.microsoft.com/en-us/entra/identity/conditional-access/
 
 ## Importing the baseline
 
+### Option 1 - ConditionalAccessBaseline Importer (Recommended)
+
+* **Step 1**: Open the Conditional Access web app: https://conditionalaccess.joeyverlinden.com/.
+* **Step 2**: Click **Deploy Conditional Access Baseline**.
+* **Step 3**: Sign in with an Entra ID account that has sufficient permissions (for example, Conditional Access Administrator). Grant approval for the necessary permissions.
+* **Step 4**: Select the policies you want to deploy. If you are applying updates, select only the updated policies (see changelog). For a new implementation, select all policies.
+* **Step 5**: Click **Deploy Baseline**.
+
+![Importer1](./Images/Importer1.png)
+
+![Importer2](./Images/Importer2.png)
+
+After deployment is completed, all policies are available in the Entra ID Admin Center and Azure portal.
+
+### Option 2 - IntuneManagementTool
+
 These PowerShell scripts are using Microsoft Authentication Library (MSAL), Microsoft Graph APIs and Azure Management APIs to manage objects in Intune and Azure. The scripts has a simple WPF UI and it supports operations like Export, Import, Copy, Download, Compare etc.
 
 This makes it easy to backup or clone a complete Intune environment. The scripts can export and import objects including assignments and support import/export between tenants. The scripts will create a migration table during export and use that for importing assignments in other environments. It will create missing groups in the target environment during import. Group information like name, description and type will be imported based on the exported group e.g. dynamic groups are supported. There will be one json file for each group in the export folder.
@@ -496,7 +514,7 @@ The script also support dependencies e.g. an App Protection is depending on an A
 > [!TIP]
 > The following tool is used: https://github.com/Micke-K/IntuneManagement. Always download the lastest version before importing or exporting data.
 
-### Setup IntuneManagement
+#### Setup IntuneManagement
 
 Start by downloading the files in GitHub. Extract the Github repo somewhere on your device. For example: *C:\Intune\IntuneManagement*.
 
@@ -536,7 +554,7 @@ Go ahead and accept the popup again, this should clear all the red text on the l
 
 Now we can start importing, exporting, or comparing tenant configurations. 
 
-### Import the configuration
+#### Import the configuration
 
 1: Click on **Bulk** -> **Import**
 
