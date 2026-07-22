@@ -59,8 +59,8 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
     - [CA400-GuestUsers-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca400-guestusers-identityprotection-anyapp-anyplatform-mfa)
     - [CA401-GuestUsers-AttackSurfaceReduction-AllApps-AnyPlatform-BlockNonGuestAppAccess](#ca401-guestusers-attacksurfacereduction-allapps-anyplatform-blocknonguestappaccess)
     - [CA402-GuestUsers-IdentityProtection-AllApps-AnyPlatform-SigninFrequency](#ca402-guestusers-identityprotection-allapps-anyplatform-signinfrequency)
-    - [CA403-Guests-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser](#ca403-guests-identityprotection-allapps-anyplatform-persistentbrowser)
-    - [CA404-Guests-AttackSurfaceReduction-SelectedApps-AnyPlatform-BLOCK](#ca404-guests-attacksurfacereduction-selectedapps-anyplatform-block)
+    - [CA403-GuestUsers-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser](#ca403-guestusers-identityprotection-allapps-anyplatform-persistentbrowser)
+    - [CA404-GuestUsers-AttackSurfaceReduction-SelectedApps-AnyPlatform-BLOCK](#ca404-guestusers-attacksurfacereduction-selectedapps-anyplatform-block)
     - [CA501-Agents-IdentityProtection-AnyApp-AnyPlatform-BLOCK-HighRiskAgent](#ca501-agents-identityprotection-anyapp-anyplatform-block-highriskagent)
     - [CA502-Agents-AttackSurfaceReduction-AllAgentIdentities-AllAgentResources-BLOCK](#ca502-agents-attacksurfacereduction-allagentidentities-allagentresources-block)
     - [CA503-Agents-BaseProtection-AllAgentUsers-AllResources-RequireCompliantDevice](#ca503-agents-baseprotection-allagentusers-allresources-requirecompliantdevice)
@@ -422,13 +422,13 @@ This policy sets a Sign-in frequency to a maximum of 12 hours for guests, to all
 
 ![CA402](./Images/CA402.png)
 
-### CA403-Guests-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser
+### CA403-GuestUsers-IdentityProtection-AllApps-AnyPlatform-PersistentBrowser
 
 This policy prevents guest from having persistent browser sessions.
 
 ![CA403](./Images/CA403.png)
 
-### CA404-Guests-AttackSurfaceReduction-SelectedApps-AnyPlatform-BLOCK
+### CA404-GuestUsers-AttackSurfaceReduction-SelectedApps-AnyPlatform-BLOCK
 
 This policy prevents guests from accessing specific apps. In this example i've blocked a random app. You should review the included and excluded apps. Excluding office 365 is not necessary if its not included. This is just an example. 
 
