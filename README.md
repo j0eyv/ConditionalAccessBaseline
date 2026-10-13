@@ -225,7 +225,7 @@ This policyrequires App Enforced Restrictions on unmanaged devices.
 
 This policy applies App Enforced Restrictions to browser sessions for Exchange Online and SharePoint Online on any platform, for all users except the CA006 exclusion group. Devices that are both compliant and corporate owned are excluded with a device filter (`device.isCompliant -eq True -and device.deviceOwnership -eq "Company"`), so the restrictions only apply to unmanaged devices. The App Enforced Restrictions themselves (for example limited, web-only access without downloads) are configured in Exchange Online and SharePoint Online; see [Use application enforced restrictions to protect access from unmanaged devices](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-all-users-app-enforced-restrictions).
 
-
+![CA006](./Images/CA006.png)
 
 ### CA100-Admins-IdentityProtection-AdminPortals-AnyPlatform-MFA
 
