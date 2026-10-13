@@ -36,7 +36,7 @@ This conditional access baseline is based on the Microsoft Conditional Access Ba
     - [CA003-Global-BaseProtection-RegisterOrJoin-AnyPlatform-MFA](#ca003-global-baseprotection-registerorjoin-anyplatform-mfa)
     - [CA004-Global-IdentityProtection-AnyApp-AnyPlatform-AuthenticationFlows](#ca004-global-identityprotection-anyapp-anyplatform-authenticationflows)
     - [CA005-Global-DataProtection-Office365-iOSenAndroid-ClientApps-Unmanaged-AppEnforcedRestrictions](#ca005-global-dataprotection-office365-iosenandroid-clientapps-unmanaged-appenforcedrestrictions)
-    - [CA006-Global-DataProtection-Office365-iOSenAndroid-RequireAppProtection](#ca006-global-dataprotection-office365-iosenandroid-requireappprotection)
+    - [CA006-Global-DataProtection-Office365-AnyPlatform-Browser-Unmanaged-AppEnforceRestrictions](#ca006-global-dataprotection-office365-anyplatform-browser-unmanaged-appenforcerestrictions)
     - [CA100-Admins-IdentityProtection-AdminPortals-AnyPlatform-MFA](#ca100-admins-identityprotection-adminportals-anyplatform-mfa)
     - [CA101-Admins-IdentityProtection-AnyApp-AnyPlatform-MFA](#ca101-admins-identityprotection-anyapp-anyplatform-mfa)
     - [CA102-Admins-IdentityProtection-AllApps-AnyPlatform-SigninFrequency](#ca102-admins-identityprotection-allapps-anyplatform-signinfrequency)
@@ -221,11 +221,9 @@ This policyrequires App Enforced Restrictions on unmanaged devices.
 
 ![CA005](./Images/CA005.png)
 
-### CA006-Global-DataProtection-Office365-iOSenAndroid-RequireAppProtection
+### CA006-Global-DataProtection-Office365-AnyPlatform-Browser-Unmanaged-AppEnforceRestrictions
 
-**Note:** This policy will be modified or removed soon as there is some overlap with CA005.
-
-This policy requires App Protection policies for all users when accessing Office 365 data from iOS or Android devices. Admin roles are excluded to make sure the Microsoft 365 App's on the iOS and Android devices do work. This one is designed on the principle that admin roles are only assigned to admin accounts!
+This policy applies App Enforced Restrictions to browser sessions for Exchange Online and SharePoint Online on any platform, for all users except the CA006 exclusion group. Devices that are both compliant and corporate owned are excluded with a device filter (`device.isCompliant -eq True -and device.deviceOwnership -eq "Company"`), so the restrictions only apply to unmanaged devices. The App Enforced Restrictions themselves (for example limited, web-only access without downloads) are configured in Exchange Online and SharePoint Online; see [Use application enforced restrictions to protect access from unmanaged devices](https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-all-users-app-enforced-restrictions).
 
 ![CA006](./Images/CA006.png)
 
