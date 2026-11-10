@@ -439,27 +439,40 @@ Learn more: https://learn.microsoft.com/en-us/entra/identity/conditional-access/
 
 ![CA501](./Images/CA501.png)
 
+> [!NOTE]
+> A Microsoft Agent 365 or Microsoft 365 E7 license is required to edit or import this policy!
+
 ### CA502-Agents-AttackSurfaceReduction-AllAgentIdentities-AllAgentResources-BLOCK
 
 By default, this policy prevents all agent identities from being used. Only agents that have been specifically excluded (approved) are allowed to be used.
 Learn more: https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-autonomous-agents?tabs=use-the-enhanced-object-picker#create-conditional-access-policy-using-the-enhanced-object-picker
 
+> [!NOTE]
+> A Microsoft Agent 365 or Microsoft 365 E7 license is required to edit or import this policy!
 
 ### CA503-Agents-BaseProtection-AllAgentUsers-AllResources-RequireCompliantDevice
 
 Certain autonomous agents are computer-based. They function within a desktop environment to carry out tasks, much like a human user engaging with software. Therefore, it is necessary for the device to meet compliance standards as a security precaution.
 Learn more: https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-autonomous-agents?tabs=use-the-enhanced-object-picker#require-a-compliant-device-for-agents-user-accounts
 
+> [!NOTE]
+> A Microsoft Agent 365 or Microsoft 365 E7 license is required to edit or import this policy!
 
 ### CA504-Agents-IdentityProtection-AllAgentUsers-AllResources-BlockRiskyAgents
 
 This policy blocks autonomous agents operating as users when Microsoft Entra ID Protection detects medium or high risk.
 Learn more: https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-autonomous-agents?tabs=use-the-enhanced-object-picker#block-risky-agents-user-accounts
 
+> [!NOTE]
+> A Microsoft Agent 365 or Microsoft 365 E7 license is required to edit or import this policy!
+
 ### CA505-Agents-AttackSurfaceReduction-AllAgentUsers-AllResources-RequireCompliantNetWork
 
 This policy blocks agent user sessions from all locations except those compliant with the Global Secure Access network. Consider whether this is feasible in your environment.
 Learn more: https://learn.microsoft.com/en-us/entra/identity/conditional-access/policy-autonomous-agents?tabs=use-the-enhanced-object-picker#require-a-compliant-network-for-agents-user-accounts
+
+> [!NOTE]
+> A Microsoft Agent 365 or Microsoft 365 E7 license is required to edit or import this policy!
 
 ## Named locations
 
