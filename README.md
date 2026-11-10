@@ -219,7 +219,7 @@ This policy prevents all users from transfering authentication flows from PC to 
 
 This policyrequires App Enforced Restrictions on unmanaged devices.
 
-![CA005](./Images/CA005.png)
+![CA005](./Images/CA005v2.png)
 
 ### CA006-Global-DataProtection-Office365-AnyPlatform-Browser-Unmanaged-AppEnforceRestrictions
 
